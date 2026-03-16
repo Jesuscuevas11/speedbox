@@ -1,125 +1,229 @@
 
 
-{% if section.blocks.size > 1 %}
-  <script
-    src="{{ 'announcement-bar.js' | asset_url }}"
-    type="module"
-    fetchpriority="low"
-  ></script>
-{% endif %}
-
-<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div class="section-background announcement-bar-background color-{{ section.settings.color_scheme }}"></div>
 <aside
-  class="announcement-bar spacing-style section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
-  style="{% render 'spacing-padding', settings: section.settings %}; --border-bottom-width: {{ section.settings.divider_width }}px;"
+  class="announcement-bar spacing-style section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}{% if section.blocks.size <= 1 %} announcement-bar--static{% endif %}"
+  style="
+    {% render 'spacing-padding', settings: section.settings %};
+    --border-bottom-width: {{ section.settings.divider_width }}px;
+    --announcement-duration: {{ section.settings.speed | times: 6 }}s;
+    --announcement-bar-height: 32.8px;
+  "
 >
-  {% liquid
-    assign autoplay = false
-    assign show_arrows = false
-    if section.blocks.size > 1
-      assign autoplay = true
-      assign show_arrows = true
-    endif
-  %}
-
-  <announcement-bar-component
-    class="announcement-bar__slider"
-    {% if autoplay == true %}
-      autoplay="{{ section.settings.speed }}" aria-live="polite"
-    {% endif %}
-  >
-    {% if show_arrows %}
-      {% render 'slideshow-arrows', icon_style: 'chevron' %}
-    {% endif %}
-
-    <div class="announcement-bar__slides">
-      {% content_for 'blocks' %}
+  <div class="announcement-bar-wrapper marquee">
+    <div class="marquee__content" aria-live="polite">
+      {% if section.blocks.size > 1 %}
+        {% for repeat in (1..3) %}
+          <div class="marquee_annoucement list-inline" {% if repeat > 1 %}aria-hidden="true"{% endif %}>
+            {% for block in section.blocks %}
+              {% liquid
+                assign plain_text = block.settings.text | strip_newlines | strip_html | strip
+                assign fallback_message = 'ENVIO GRATIS A PARTIR DE 125 EUR'
+                assign message_slot = forloop.index0 | modulo: 4
+                case message_slot
+                  when 1
+                    assign fallback_message = 'GARANTIA DE POR VIDA (MANIJAS)'
+                  when 2
+                    assign fallback_message = '90 DIAS DE DEVOLUCIONES GRATIS'
+                  when 3
+                    assign fallback_message = 'LOVED BY 50,000+ HAPPY CUSTOMERS'
+                endcase
+                assign block_message = plain_text
+                if block_message == ''
+                  assign block_message = fallback_message
+                endif
+              %}
+              <div
+                class="announcement-bar__item"
+                role="region"
+                aria-label="Anuncio"
+                {% if repeat == 1 %}
+                  {{ block.shopify_attributes }}
+                {% endif %}
+              >
+                {% if block.settings.link != blank %}
+                  <a class="announcement-bar__link link link--text focus-inset animate-arrow" href="{{ block.settings.link }}">
+                    <p class="announcement-bar__message h5">{{ block_message }}</p>
+                  </a>
+                {% else %}
+                  <p class="announcement-bar__message h5">{{ block_message }}</p>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      {% elsif section.blocks.size == 1 %}
+        {% assign first_block = section.blocks.first %}
+        {% assign first_text = first_block.settings.text | strip_newlines | strip_html | strip %}
+        <div class="marquee_annoucement list-inline">
+          <div class="announcement-bar__item" role="region" aria-label="Anuncio" {{ first_block.shopify_attributes }}>
+            {% if first_text == '' %}
+              <p class="announcement-bar__message h5">ENVIO GRATIS A PARTIR DE 125 EUR</p>
+            {% elsif first_block.settings.link != blank %}
+              <a class="announcement-bar__link link link--text focus-inset animate-arrow" href="{{ first_block.settings.link }}">
+                <p class="announcement-bar__message h5">{{ first_block.settings.text }}</p>
+              </a>
+            {% else %}
+              <p class="announcement-bar__message h5">{{ first_block.settings.text }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% else %}
+        <div class="marquee_annoucement list-inline">
+          <div class="announcement-bar__item" role="region" aria-label="Anuncio">
+            <a class="announcement-bar__link link link--text focus-inset animate-arrow" href="/es/collections/all">
+              <p class="announcement-bar__message h5">ENVIO GRATIS A PARTIR DE 125 EUR</p>
+            </a>
+          </div>
+          <div class="announcement-bar__item" role="region" aria-label="Anuncio">
+            <p class="announcement-bar__message h5">GARANTIA DE POR VIDA (MANIJAS)</p>
+          </div>
+          <div class="announcement-bar__item" role="region" aria-label="Anuncio">
+            <p class="announcement-bar__message h5">90 DIAS DE DEVOLUCIONES GRATIS</p>
+          </div>
+          <div class="announcement-bar__item" role="region" aria-label="Anuncio">
+            <p class="announcement-bar__message h5">LOVED BY 50,000+ HAPPY CUSTOMERS</p>
+          </div>
+        </div>
+      {% endif %}
     </div>
-  </announcement-bar-component>
+  </div>
 </aside>
 
 {% stylesheet %}
   .announcement-bar {
     border-block-end: var(--border-bottom-width) solid var(--color-border);
-  }
-
-  .announcement-bar__slider {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     position: relative;
-
-    @media screen and (max-width: 749px) {
-      grid-column: 1 / -1;
-    }
+    z-index: 4;
+    color: #ffffff;
+    padding-block: 0 !important;
+    height: var(--announcement-bar-height);
+    min-height: var(--announcement-bar-height);
   }
 
-  .announcement-bar__slides {
-    display: grid;
-    grid: [stack] auto / [stack] auto;
-    width: calc(100% - var(--button-size) * 2);
-    max-width: 680px;
-    margin-inline: auto;
+  .announcement-bar-background {
+    background: linear-gradient(90deg, #5b21b6 0%, #6d28d9 50%, #5b21b6 100%) !important;
   }
 
-  .announcement-bar__slides > * {
-    grid-area: stack;
-  }
-
-  .announcement-bar__slide {
-    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-    content-visibility: visible;
-
-    &[aria-hidden='true'] {
-      opacity: 0;
-      visibility: hidden;
-    }
-  }
-
-  .announcement-bar__slider slideshow-arrows {
-    padding: 0;
-    mix-blend-mode: normal;
-  }
-
-  .announcement-bar__slider slideshow-arrows .slideshow-control {
-    color: var(--color-foreground);
-  }
-
-  .announcement-bar__slider .slideshow-control {
+  .announcement-bar-wrapper {
     display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .marquee {
+    width: 100%;
+    height: var(--announcement-bar-height);
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .marquee__content {
+    width: 300%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    animation: announcement-marquee var(--announcement-duration) linear infinite;
+    will-change: transform;
+  }
+
+  .marquee__content:hover {
+    animation-play-state: paused;
+  }
+
+  .marquee_annoucement {
+    display: flex;
+    align-items: center;
+    flex: 0 0 33.3333%;
+    min-width: 33.3333%;
+    justify-content: space-around;
+    gap: clamp(2rem, 7vw, 9rem);
+    padding-inline: clamp(1rem, 2vw, 2rem);
+  }
+
+  .list-inline {
+    list-style: none;
+    margin: 0;
     padding: 0;
-    width: var(--button-size);
-    height: var(--button-size);
+  }
+
+  .announcement-bar__item {
+    flex: 0 0 auto;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    opacity: 1;
-    animation: none;
-
-    @media screen and (min-width: 750px) {
-      --slideshow-control-offset: calc((var(--button-size) - var(--icon-size-xs)) / 2);
-
-      .section--page-width &.slideshow-control--previous {
-        transform: translateX(var(--slideshow-control-offset));
-      }
-    }
-  }
-
-  .announcement-bar__slider .slideshow-control .svg-wrapper {
-    width: var(--icon-size-xs);
-    height: var(--icon-size-xs);
-  }
-
-  .announcement-bar__slide {
-    place-content: center;
-  }
-
-  .announcement-bar__text:first-child {
-    margin: 0;
+    min-height: var(--announcement-bar-height);
   }
 
   .announcement-bar__link {
-    position: absolute;
-    inset: 0;
+    position: static;
+    text-decoration: none;
+  }
+
+  .announcement-bar__message {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: var(--announcement-bar-height);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+
+  .announcement-bar .link,
+  .announcement-bar .link:hover,
+  .announcement-bar .link:focus-visible,
+  .announcement-bar .animate-arrow,
+  .announcement-bar .animate-arrow::after {
+    color: #ffffff;
+  }
+
+  .announcement-bar--static .marquee__content {
+    width: 100%;
+    justify-content: center;
+    animation: none;
+  }
+
+  .announcement-bar--static .marquee_annoucement {
+    flex: 0 0 auto;
+    min-width: auto;
+    justify-content: center;
+    padding-inline: 0;
+  }
+
+  @keyframes announcement-marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-66.6667%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee__content {
+      animation: none;
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+    .marquee_annoucement {
+      gap: clamp(1.25rem, 5vw, 3rem);
+      padding-inline-end: clamp(1.25rem, 5vw, 3rem);
+    }
+
+    .announcement-bar__message {
+      font-size: 0.8125rem;
+      line-height: var(--announcement-bar-height);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .announcement-bar__message {
+      letter-spacing: 0.02em;
+    }
   }
 {% endstylesheet %}
 
@@ -210,10 +314,32 @@
       "name": "t:names.announcement_bar",
       "blocks": {
         "announcement_1": {
-          "type": "_announcement"
+          "type": "_announcement",
+          "settings": {
+            "text": "ENVIO GRATIS A PARTIR DE 125 €",
+            "link": "/es/collections/all"
+          }
+        },
+        "announcement_2": {
+          "type": "_announcement",
+          "settings": {
+            "text": "GARANTIA DE POR VIDA (MANIJAS)"
+          }
+        },
+        "announcement_3": {
+          "type": "_announcement",
+          "settings": {
+            "text": "90 DIAS DE DEVOLUCIONES GRATIS"
+          }
+        },
+        "announcement_4": {
+          "type": "_announcement",
+          "settings": {
+            "text": "LOVED BY 50,000+ HAPPY CUSTOMERS"
+          }
         }
       },
-      "block_order": ["announcement_1"]
+      "block_order": ["announcement_1", "announcement_2", "announcement_3", "announcement_4"]
     }
   ]
 }
