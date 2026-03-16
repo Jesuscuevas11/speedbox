@@ -274,64 +274,10 @@
     },
     "pdp_social_proof_8Rw3Jm": {
       "type": "pdp-social-proof",
-      "blocks": {
-        "video_1": {
-          "type": "video_card",
-          "settings": {"video_id": "3U5Bn-R5MLw", "alt": "Customer review video 1"}
-        },
-        "video_2": {
-          "type": "video_card",
-          "settings": {"video_id": "zX3fB4iTZfU", "alt": "Customer review video 2"}
-        },
-        "video_3": {
-          "type": "video_card",
-          "settings": {"video_id": "ab-TSJ9YS9M", "alt": "Customer review video 3"}
-        },
-        "video_4": {
-          "type": "video_card",
-          "settings": {"video_id": "jroNtnSdogs", "alt": "Customer review video 4"}
-        },
-        "video_5": {
-          "type": "video_card",
-          "settings": {"video_id": "N365_szEpaU", "alt": "Customer review video 5"}
-        },
-        "video_6": {
-          "type": "video_card",
-          "settings": {"video_id": "JQchw5EAoWE", "alt": "Customer review video 6"}
-        },
-        "trust_1": {
-          "type": "trust_card",
-          "settings": {
-            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"></path></svg>",
-            "title": "90-Day Money Back",
-            "description": "Try risk-free for 3 months. Not satisfied? Full refund, no questions asked.",
-            "is_shipping": false
-          }
-        },
-        "trust_2": {
-          "type": "trust_card",
-          "settings": {
-            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 6v6l4 2\"></path></svg>",
-            "title": "Lifetime Handle Warranty",
-            "description": "Premium handles guaranteed forever. 90-day warranty on cables and cords.",
-            "is_shipping": false
-          }
-        },
-        "trust_3": {
-          "type": "trust_card",
-          "settings": {
-            "icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z\"></path><circle cx=\"12\" cy=\"10\" r=\"3\"></circle></svg>",
-            "title": "Free Shipping Over EUR 50",
-            "description": "Fast delivery to EU, UK, US, Canada and Australia. Worldwide available.",
-            "is_shipping": true
-          }
-        }
-      },
-      "block_order": ["video_1", "video_2", "video_3", "video_4", "video_5", "video_6", "trust_1", "trust_2", "trust_3"],
       "settings": {
         "rating_value": "4.9",
         "rating_copy": "Based on 1,200+ verified reviews",
-        "reviews_link_url": "https://www.elevaterope.com/pages/reviews",
+        "reviews_link_url": "",
         "reviews_link_label": "Read customer reviews",
         "avatar_1": "SM",
         "avatar_2": "MR",
@@ -348,7 +294,7 @@
         "countdown_value": "18h 25m",
         "countdown_suffix": "for same-day shipping",
         "gallery_heading": "Real Customers, Real Results",
-        "gallery_link_url": "https://www.elevaterope.com/pages/reviews",
+        "gallery_link_url": "",
         "gallery_link_label": "View all reviews",
         "notification_name": "Carlos R. from Madrid",
         "notification_action": "just purchased Athlete Bundle",
@@ -416,13 +362,14 @@
     "pdp_featured_legacy_Ak4tPm": {
       "type": "pdp-featured-legacy",
       "settings": {
-        "product_url": "/es/products/storm-beaded-jump-rope",
+        "product_url": "",
         "product_image_url": "https://www.elevaterope.com/cdn/shop/files/HEROExample_00de0200-0308-4d7f-84fb-9f7ab9c95a08.jpg?v=1770505158&width=1200",
+        "product_image_alt": "Storm - Cuerda para saltar con cuentas",
         "product_title": "Storm - Cuerda para saltar con cuentas",
-        "features_heading": "Features:",
-        "features_list": "- 3.5MM High Quality Polycord\n- Durable shatterproof beads\n- Rock-hard, Shatter-free Handles\n- Perfect for beginners, freestyle and any skills that require more feedback for better control",
-        "benefits_heading": "Benefits:",
-        "benefits_list": "- Eliminates tangling, makes you trip less and allows for smooth transitions and the best jumping experience every time.\n- Highest quality PVC with nylon core allows for a longer lifespan and gives you the freedom to jump anywhere.\n- Rock-hard, shatter-free handles give you the space to practice freestyle tricks on concrete without breaking.\n- 5MM Cable gives you the feedback you need to feel your rope and the speed you want for an effective full-body workout.",
+        "features_heading": "Características:",
+        "features_list": "- Polycord de alta calidad de 3.5MM\n- Cuentas duraderas a prueba de roturas\n- Mangos resistentes y a prueba de roturas\n- Perfecto para principiantes, freestyle y cualquier habilidad que requiera más retroalimentación para un mejor control",
+        "benefits_heading": "Beneficios:",
+        "benefits_list": "- Elimina enredos, te hace tropezar menos y permite transiciones suaves y la mejor experiencia de salto cada vez.\n- PVC de la más alta calidad con núcleo de nylon permite una vida útil más larga y te da la libertad de saltar en cualquier lugar.\n- Los mangos resistentes y a prueba de roturas te dan el espacio para practicar trucos freestyle en concreto sin romperse.\n- El cable de 5MM te da la retroalimentación que necesitas para sentir tu cuerda y la velocidad que deseas para un entrenamiento de cuerpo completo efectivo.",
         "cta_label": "Ver detalles completos"
       }
     },
@@ -440,25 +387,6 @@
     },
     "pdp_multicolumn_Ls2mVq": {
       "type": "pdp-multicolumn",
-      "blocks": {
-        "item_1": {
-          "type": "item",
-          "settings": {
-            "image_url": "https://www.elevaterope.com/cdn/shop/files/5_565de955-400d-40e3-9966-efdee3ec3025.png?v=1743957331&width=1420",
-            "image_alt": "Retroalimentacion visual de cuerda con cuentas",
-            "item_text": "Las cuentas atrapan aire, lo que resulta en mas retroalimentacion y ayuda a sentir mejor la ubicacion de la cuerda."
-          }
-        },
-        "item_2": {
-          "type": "item",
-          "settings": {
-            "image_url": "https://www.elevaterope.com/cdn/shop/files/4_b45ab812-0834-47b0-994c-7c366b30e1c3.png?v=1743957332&width=1420",
-            "image_alt": "Control con cuerda de cuentas",
-            "item_text": "Una cuerda con cuentas ha demostrado ser perfecta para principiantes, estilo libre y cualquier habilidad que requiera mas retroalimentacion para un mejor control."
-          }
-        }
-      },
-      "block_order": ["item_1", "item_2"],
       "settings": {
         "heading": "Por que una cuerda de cuentas?",
         "description": "Cada tipo de cuerda tiene sus propios beneficios y se adapta a un estilo diferente de saltar. La estructura de una cuerda con cuentas consiste en un cordon de poliester de 3.0MM envuelto en cuentas duraderas y coloridas."
@@ -466,54 +394,10 @@
     },
     "pdp_timeline_Pz7rXe": {
       "type": "pdp-timeline",
-      "blocks": {
-        "timeline_1": {
-          "type": "timeline_item",
-          "settings": {
-            "alignment": "right",
-            "image_url": "https://www.elevaterope.com/cdn/shop/files/elevate_app_with_play_store_and_app_store_icons.png?v=1742612172&width=660",
-            "image_alt": "Aplicacion Elevate Shred",
-            "eyebrow": "Incluye:",
-            "heading": "ELEVATE SHRED",
-            "description": "<h3>Aplicacion de Entrenamiento con Cuerda para Saltar</h3><p>Nuestra aplicacion complementaria de cuerda para saltar disenada para llevar tus entrenamientos al siguiente nivel.</p>"
-          }
-        },
-        "timeline_2": {
-          "type": "timeline_item",
-          "settings": {
-            "alignment": "left",
-            "image_url": "https://www.elevaterope.com/cdn/shop/files/Worldfissa-130-scaled.jpg?v=1742613027&width=660",
-            "image_alt": "Aprobado por expertos",
-            "eyebrow": "Aprobado por:",
-            "heading": "",
-            "description": "<h5>Expertos en Crossfit, boxeadores, campeones mundiales de salto con cuerda y miles de influencers de fitness en todo el mundo.</h5>"
-          }
-        },
-        "timeline_3": {
-          "type": "timeline_item",
-          "settings": {
-            "alignment": "right",
-            "image_url": "https://www.elevaterope.com/cdn/shop/files/MArco-Testi.jpg?v=1742613027&width=660",
-            "image_alt": "Razon para elegir elevate",
-            "eyebrow": "",
-            "heading": "",
-            "description": "<h6><strong>Y esta es la razon:</strong></h6><p><strong>Experiencia definitiva de salto con cuerda:</strong> disenado para principiantes y saltadores competitivos.</p>"
-          }
-        }
-      },
-      "block_order": ["timeline_1", "timeline_2", "timeline_3"],
       "settings": {}
     },
     "pdp_tabs_Jk8cWr": {
       "type": "pdp-tabs",
-      "blocks": {
-        "tab_1": {"type": "tab", "settings": {"label": "COMPRA", "content": "<h6>Preguntas y respuestas sobre la compra de una nueva cuerda para saltar</h6><h5>P:1</h5><h3>No estoy seguro de que cuerda elegir ?</h3><p>Entendemos completamente si eres nuevo en el salto con cuerda.</p>"}},
-        "tab_2": {"type": "tab", "settings": {"label": "ENVIO", "content": "<h6>Preguntas y respuestas sobre envios y devoluciones</h6><h5>P:1</h5><h3>Cual es su politica de devoluciones?</h3><p>Puedes devolver tu pedido hasta 90 dias despues de recibirlo si no fue usado.</p>"}},
-        "tab_3": {"type": "tab", "settings": {"label": "LONGITUD DE LA CUERDA DE SALTO", "content": "<h6>Preguntas y respuestas sobre longitud de cuerda</h6><h5>Q:1</h5><h3>Son ajustables en longitud tus cuerdas para saltar?</h3><p>Si. Todas nuestras cuerdas son ajustables para adaptarse a tu altura y estilo de salto.</p>"}},
-        "tab_4": {"type": "tab", "settings": {"label": "TRUCOS DE APRENDIZAJE", "content": "<h6>Preguntas y respuestas sobre dominio de trucos</h6><h5>Q:1</h5><h3>Como puedo empezar a aprender trucos?</h3><p>Te recomendamos seguir una progresion para principiantes con practica constante y enfoque tecnico.</p>"}},
-        "tab_5": {"type": "tab", "settings": {"label": "LA FAMILIA ELEVATE", "content": "<h6>Preguntas y respuestas sobre la familia Elevate</h6><h5>Q:1</h5><h3>Como puedo unirme a la familia Elevate?</h3><p>Seleccionamos miembros por actitud, constancia y participacion en la comunidad.</p>"}}
-      },
-      "block_order": ["tab_1", "tab_2", "tab_3", "tab_4", "tab_5"],
       "settings": {
         "nav_aria_label": "Informacion del producto"
       }
