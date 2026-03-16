@@ -52,6 +52,8 @@
             "height": "fit",
             "details_position": "flex-start",
             "gap": 28,
+            "product_category": "Pro-Grade Beaded Rope",
+            "stock_indicator_text": "Only 16 left in stock",
             "sticky_details_desktop": true,
             "inherit_color_scheme": true,
             "color_scheme": "scheme-1",
@@ -391,6 +393,7 @@
       "block_order": [
         "text_cbcgyb"
       ],
+      "disabled": true,
       "name": "t:names.product_recommendations",
       "settings": {
         "product": "{{ closest.product }}",
