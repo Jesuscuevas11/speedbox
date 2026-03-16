@@ -1,0 +1,375 @@
+<footer id="Banner-{{ section.id }}" class="footer-style3 color-{{ section.settings.color_scheme }}">
+  <div class="footer-style3__content-top section section--full-width spacing-style" style="{% render 'spacing-padding', settings: section.settings %}">
+    <div class="footer-style3__grid">
+      <div class="footer-style3__col footer-style3__col--about">
+        <a href="{{ routes.root_url }}" class="footer-style3__logo-link" aria-label="Inicio">
+          {% if section.settings.logo != blank %}
+            {{
+              section.settings.logo
+              | image_url: width: 700
+              | image_tag: loading: 'lazy', class: 'footer-style3__logo', alt: shop.name
+            }}
+          {% else %}
+            <span class="footer-style3__logo-text">{{ shop.name }}</span>
+          {% endif %}
+        </a>
+        <p class="footer-style3__text">{{ section.settings.mission_text }}</p>
+      </div>
+
+      <details class="footer-style3__col footer-style3__accordion">
+        <summary class="footer-style3__heading">{{ section.settings.policy_title }}</summary>
+        <div class="footer-style3__accordion-content">
+          <ul class="footer-style3__list" role="list">
+            <li><a href="/es/pages/terms-condtions">Terminos y Condiciones</a></li>
+            <li><a href="/es/pages/privacy-policy">Politica de Privacidad</a></li>
+            <li><a href="/es/pages/shipping-policy">Politica de Envio</a></li>
+            <li><a href="/es/pages/cancellation-policy">Politica de cancelacion</a></li>
+            <li><a href="/es/pages/refund-and-return-policy">Politica de reembolso y devoluciones</a></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="footer-style3__col footer-style3__accordion">
+        <summary class="footer-style3__heading">{{ section.settings.info_title }}</summary>
+        <div class="footer-style3__accordion-content">
+          <ul class="footer-style3__list" role="list">
+            <li><a href="/es/pages/contact">Contactanos</a></li>
+            <li><a href="https://youtu.be/viKJE1DufVg?si=LnYaIiYLXVAWmtdY">Serie para principiantes</a></li>
+            <li><a href="/es/blogs/articles/proper-jump-rope-length">Dimensionando tu cuerda para saltar</a></li>
+            <li><a href="/es/pages/faq">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="footer-style3__col footer-style3__col--hq footer-style3__accordion">
+        <summary class="footer-style3__heading">{{ section.settings.hq_title }}</summary>
+        <div class="footer-style3__accordion-content">
+          <p class="footer-style3__text">{{ section.settings.hq_text }}</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="footer-style3__content-bottom section section--full-width">
+    <div class="footer-style3__bottom-inner">
+      <small class="footer-style3__copyright">{{ section.settings.copyright_text }}</small>
+
+      <div class="footer-style3__payments">
+        <span class="visually-hidden">Metodos de pago</span>
+        <ul class="list-payment" role="list">
+          {%- for type in shop.enabled_payment_types -%}
+            <li class="list-payment__item">{{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}</li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% stylesheet %}
+  .footer-style3 {
+    background-color: #f3f3f3;
+    color: #111111;
+    font-family: 'Roboto Condensed', var(--font-body--family), sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 25.2px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .footer-style3__content-top {
+    --padding-block-start: 15px;
+    --padding-block-end: 39px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .footer-style3__content-top {
+      --padding-block-start: 20px;
+      --padding-block-end: 52px;
+    }
+  }
+
+  .footer-style3__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    max-width: 1520px;
+    margin: 0 auto;
+    padding-inline: var(--page-margin);
+    box-sizing: border-box;
+  }
+
+  @media screen and (min-width: 1000px) {
+    .footer-style3__grid {
+      grid-template-columns: 1.1fr 1fr 1fr 1.1fr;
+      gap: 32px;
+    }
+  }
+
+  .footer-style3__heading {
+    color: rgb(85, 16, 221);
+    margin-top: 8px;
+    margin-bottom: 35px;
+    font-family: 'Roboto Condensed', var(--font-body--family), sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.3;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  .footer-style3__heading::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -12px;
+    width: 36px;
+    height: 1px;
+    background-color: #b1b1b1;
+  }
+
+  .footer-style3__accordion {
+    border-top: 1px solid #d8d8d8;
+    padding-top: 10px;
+  }
+
+  .footer-style3__accordion .footer-style3__heading {
+    margin: 0;
+    padding: 6px 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: 'Roboto Condensed', var(--font-body--family), sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .footer-style3__accordion .footer-style3__heading::-webkit-details-marker {
+    display: none;
+  }
+
+  .footer-style3__accordion .footer-style3__heading::before {
+    display: none;
+  }
+
+  .footer-style3__accordion .footer-style3__heading::after {
+    content: '+';
+    float: right;
+    font-size: 18px;
+    line-height: 1;
+    color: rgb(85, 16, 221);
+  }
+
+  .footer-style3__accordion[open] .footer-style3__heading::after {
+    content: '-';
+  }
+
+  .footer-style3__accordion-content {
+    padding-top: 12px;
+  }
+
+  .footer-style3__logo-link {
+    display: inline-flex;
+    max-width: 80%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .footer-style3__logo {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 320px;
+  }
+
+  .footer-style3__logo-text {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .footer-style3__text {
+    margin: 0;
+    font-family: 'Roboto Condensed', var(--font-body--family), sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: inherit;
+    white-space: pre-line;
+  }
+
+  .footer-style3__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+
+  .footer-style3__list a {
+    font-family: 'Roboto Condensed', var(--font-body--family), sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  @media screen and (min-width: 750px) {
+    .footer-style3,
+    .footer-style3__text,
+    .footer-style3__list a,
+    .footer-style3__copyright,
+    .footer-style3 .list-payment__item {
+      color: #111111;
+    }
+
+    .footer-style3__heading {
+      color: rgb(85, 16, 221);
+    }
+
+    .footer-style3__accordion {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .footer-style3__accordion .footer-style3__heading {
+      margin-top: 8px;
+      margin-bottom: 35px;
+      padding: 0;
+      cursor: default;
+      pointer-events: none;
+      font-weight: 300;
+    }
+
+    .footer-style3__accordion .footer-style3__heading::before {
+      display: block;
+    }
+
+    .footer-style3__accordion .footer-style3__heading::after {
+      display: none;
+    }
+
+    .footer-style3__accordion-content {
+      padding-top: 0;
+    }
+  }
+
+  .footer-style3__list a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-style3__content-bottom {
+    border-top: 1px solid #e4e4e4;
+    padding-top: 16px;
+    padding-bottom: 18px;
+  }
+
+  .footer-style3__bottom-inner {
+    max-width: 1520px;
+    margin: 0 auto;
+    padding-inline: var(--page-margin);
+    display: grid;
+    gap: 16px;
+  }
+
+  .footer-style3__copyright {
+    color: inherit;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .footer-style3__payments .list-payment {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer-style3__payments .list-payment__item {
+    line-height: 0;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Footer Style 3",
+  "enabled_on": {
+    "groups": ["footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "textarea",
+      "id": "mission_text",
+      "label": "Mision",
+      "default": "Nuestra mision en Elevate Rope es revolucionar el fitness cardiovascular y cambiar la percepcion negativa de los entrenamientos cardiovasculares en todo el mundo.\n\nNos esforzamos por hacer que el ejercicio cardiovascular sea accesible, agradable y divertido para todos, para que personas de todo el mundo puedan experimentar los beneficios de un estilo de vida saludable y activo."
+    },
+    {
+      "type": "text",
+      "id": "policy_title",
+      "label": "Titulo columna politica",
+      "default": "NUESTRA POLITICA"
+    },
+    {
+      "type": "text",
+      "id": "info_title",
+      "label": "Titulo columna informacion",
+      "default": "INFORMACION"
+    },
+    {
+      "type": "text",
+      "id": "hq_title",
+      "label": "Titulo columna HQ",
+      "default": "Elevate Rope HQ:"
+    },
+    {
+      "type": "textarea",
+      "id": "hq_text",
+      "label": "Texto HQ",
+      "default": "Numero de telefono: +31 6 12593028\n\nCorreo empresarial: support@elevaterope.com\n\nDireccion: Daltonstraat 17a, 3316 GD, Dordrecht, ZH, Paises Bajos."
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright",
+      "default": "© 2019 – 2025 Elevate Rope. Todos los derechos reservados. Elevate Rope es una marca registrada."
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 52
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer Style 3"
+    }
+  ]
+}
+{% endschema %}

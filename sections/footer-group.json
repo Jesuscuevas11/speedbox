@@ -11,6 +11,21 @@
   "type": "footer",
   "name": "Footer",
   "sections": {
+    "footer_style3_custom_r7QkLm": {
+      "type": "footer-style3-custom",
+      "settings": {
+        "logo": "shopify://shop_images/elevate_rope_logo_1.avif",
+        "color_scheme": "scheme-1",
+        "mission_text": "Nuestra mision en Elevate Rope es revolucionar el fitness cardiovascular y cambiar la percepcion negativa de los entrenamientos cardiovasculares en todo el mundo.\n\nNos esforzamos por hacer que el ejercicio cardiovascular sea accesible, agradable y divertido para todos, para que personas de todo el mundo puedan experimentar los beneficios de un estilo de vida saludable y activo.",
+        "policy_title": "NUESTRA POLITICA",
+        "info_title": "INFORMACION",
+        "hq_title": "Elevate Rope HQ:",
+        "hq_text": "Numero de telefono: +31 6 12593028\n\nCorreo empresarial: support@elevaterope.com\n\nDireccion: Daltonstraat 17a, 3316 GD, Dordrecht, ZH, Paises Bajos.",
+        "copyright_text": "© 2019 – 2025 Elevate Rope. Todos los derechos reservados. Elevate Rope es una marca registrada.",
+        "padding-block-start": 20,
+        "padding-block-end": 52
+      }
+    },
     "footer_m9NzUG": {
       "type": "footer",
       "blocks": {
@@ -205,6 +220,7 @@
     }
   },
   "order": [
+    "footer_style3_custom_r7QkLm",
     "footer_m9NzUG",
     "footer_utilities_jLGE8U"
   ]
