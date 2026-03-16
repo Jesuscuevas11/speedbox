@@ -227,8 +227,9 @@
             "text_aEtTtq": {
               "type": "text",
               "name": "Product description",
+              "disabled": true,
               "settings": {
-                "text": "{{ closest.product.description }}",
+                "text": "<p>{{ closest.product.description }}</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -542,22 +543,6 @@
         "padding-block-end": 48
       }
     },
-    "recommended_products_manual_KtMdLU": {
-      "type": "recommended-products-manual",
-      "name": "Productos recomendados",
-      "settings": {
-        "heading": "Productos recomendados",
-        "products": [
-          "cuerda-para-saltar-con-cuentas-1",
-          "cuerda-para-saltar-con-cuentas-copy",
-          "cuerda-para-saltar-con-cuentas"
-        ],
-        "products_limit": 8,
-        "color_scheme": "",
-        "padding-block-start": 40,
-        "padding-block-end": 40
-      }
-    },
     "pdp_tabs_EaKJtP": {
       "type": "pdp-tabs",
       "blocks": {
@@ -612,6 +597,22 @@
       "name": "PDP Tabs",
       "settings": {
         "nav_aria_label": "Informacion del producto"
+      }
+    },
+    "recommended_products_manual_KtMdLU": {
+      "type": "recommended-products-manual",
+      "name": "Productos recomendados",
+      "settings": {
+        "heading": "Productos recomendados",
+        "products": [
+          "cuerda-para-saltar-con-cuentas-1",
+          "cuerda-para-saltar-con-cuentas-copy",
+          "cuerda-para-saltar-con-cuentas"
+        ],
+        "products_limit": 8,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 40
       }
     }
   },
