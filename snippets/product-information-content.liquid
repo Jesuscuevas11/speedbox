@@ -446,6 +446,93 @@
       overflow: hidden;
     }
 
+    .product-information .media-gallery--carousel slideshow-component:has(slideshow-controls[thumbnails]) {
+      width: 685.4px;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .product-information .media-gallery--carousel slideshow-controls[thumbnails] {
+      box-sizing: border-box;
+      color: rgb(45, 45, 45);
+      display: block;
+      flex-shrink: 0;
+      font-family: Inter, sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 300;
+      height: 134px;
+      line-height: 25.2px;
+      list-style-image: none;
+      list-style-position: outside;
+      list-style-type: none;
+      margin-top: 12px;
+      margin-right: 0;
+      margin-bottom: 0;
+      margin-left: 0;
+      order: 2;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      padding-top: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+      padding-left: 0;
+      position: relative;
+      unicode-bidi: isolate;
+      width: 685.4px;
+      max-width: 100%;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .product-information .media-gallery--carousel slideshow-controls[thumbnails] .slideshow-controls__thumbnails-container {
+      overflow-x: hidden;
+      overflow-y: hidden;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .product-information .media-gallery--carousel slideshow-controls[thumbnails] .slideshow-controls__thumbnails {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .product-information .media-gallery--carousel slideshow-controls[thumbnails] .slideshow-controls__thumbnail {
+      --aspect-ratio: 1 / 1;
+      width: 122px;
+      min-width: 122px;
+      max-width: 122px;
+      height: 122px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid transparent;
+      padding: 0;
+      box-sizing: border-box;
+      opacity: 0.55;
+      transition: opacity 0.2s ease, border-color 0.2s ease;
+    }
+
+    .product-information .media-gallery--carousel slideshow-controls[thumbnails] .slideshow-controls__thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 0;
+      outline: 0;
+    }
+
+    .product-information .media-gallery--carousel slideshow-controls[thumbnails] .slideshow-controls__thumbnail[aria-selected='true'] {
+      border: 2px solid #5510dd;
+      opacity: 1;
+      outline: none;
+      box-shadow: none;
+    }
+
+    .product-information .media-gallery--carousel slideshow-controls[thumbnails] .slideshow-controls__thumbnail:focus-visible {
+      outline: none;
+      box-shadow: none;
+    }
+
     .product-information .media-gallery--carousel :not(.dialog-zoomed-gallery) > .product-media-container {
       width: 100%;
       min-width: 100%;
