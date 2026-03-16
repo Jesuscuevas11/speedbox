@@ -913,6 +913,23 @@
     }
   }
 
+  @media screen and (max-width: 749px) {
+    /* Mobile icon swap: remove account icon and place search icon in its slot */
+    .header__row--top .header__column--right header-actions .account-button {
+      display: none !important;
+    }
+
+    .header__row--top .header__column--left .search-action--hidden-on-menu {
+      display: none !important;
+    }
+
+    .header__row--top .header__column--right .search-action--hidden-on-drawer {
+      display: flex !important;
+      grid-area: rightA;
+      justify-self: end;
+    }
+  }
+
   .header:not(.header--compact) .header__row--bottom {
     --header-padding: var(--padding-xs);
   }
