@@ -1839,11 +1839,11 @@
     font-weight: 300;
     line-height: 25.2px;
     margin: 0;
-    padding: 80px 0 40px;
+    padding: 80px 0 0;
     unicode-bidi: isolate;
     width: 100%;
     background: #fff;
-    min-height: 1277.1px;
+    min-height: 0;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -1870,6 +1870,9 @@
     padding: 0;
     margin: 0;
     list-style: none;
+    position: relative;
+    z-index: 20;
+    pointer-events: auto;
   }
 
   .pdp-tabs__nav li {
@@ -1891,6 +1894,9 @@
     white-space: normal;
     line-height: 1.15;
     text-align: center;
+    position: relative;
+    z-index: 21;
+    pointer-events: auto;
   }
 
   .pdp-tabs__tab svg {
@@ -1905,6 +1911,10 @@
     color: #5510dd;
     font-weight: 700;
     border-bottom: 2px solid #5510dd;
+  }
+
+  .pdp-tabs__content {
+    margin-top: 33px;
   }
 
   .pdp-tabs__panel {
@@ -1929,6 +1939,7 @@
     font-size: 15px;
     color: #7b7b7b;
     margin: 0;
+    text-align: center;
   }
 
   .pdp-tabs__panel h3 {
@@ -1936,17 +1947,20 @@
     color: #5510dd;
     margin: 20px 0;
     text-transform: uppercase;
+    text-align: center;
   }
 
   .pdp-tabs__panel h5 {
     margin: 0;
     font-size: 20px;
+    text-align: center;
   }
 
   .pdp-tabs__panel h4 {
     font-size: 20px;
     margin-top: 40px;
     margin-bottom: 0;
+    text-align: center;
   }
 
   .pdp-tabs__panel p,
@@ -1956,6 +1970,7 @@
     font-size: 16px;
     line-height: 1.5;
     margin: 0;
+    text-align: center;
   }
 
   .pdp-recommendations {
@@ -2336,7 +2351,7 @@
 
     .pdp-tabs {
       padding-top: 30px;
-      padding-bottom: 30px;
+      padding-bottom: 0;
       min-height: 0;
     }
 
@@ -2360,6 +2375,10 @@
       border-bottom: 1px solid #ddd;
       transition: none;
       width: 100%;
+    }
+
+    .pdp-tabs__content {
+      margin-top: 23px;
     }
 
     .pdp-tabs__mobile-title {
@@ -2424,7 +2443,7 @@
 
     .pdp-tabs__panel p,
     .pdp-tabs__panel ul li {
-      text-align: left;
+      text-align: center;
       font-size: 15px;
     }
 
@@ -2760,9 +2779,12 @@
       if (!root || root.dataset.tabsInitialized === 'true') return;
       root.dataset.tabsInitialized = 'true';
 
+      const nav = root.querySelector('.pdp-tabs__nav');
       const navItems = Array.from(root.querySelectorAll('.pdp-tabs__nav li'));
       const navButtons = Array.from(root.querySelectorAll('.pdp-tabs__tab'));
       const panels = Array.from(root.querySelectorAll('.pdp-tabs__panel'));
+
+      if (!nav || !navButtons.length || !panels.length) return;
 
       const setActive = (tabId) => {
         navItems.forEach((item) => {
@@ -2777,16 +2799,25 @@
         });
       };
 
-      navButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          setActive(button.dataset.tabTarget);
-        });
+      nav.addEventListener('click', (event) => {
+        const button = event.target.closest('.pdp-tabs__tab');
+        if (!button || !nav.contains(button)) return;
+        event.preventDefault();
+        event.stopPropagation();
+        if (!button.dataset.tabTarget) return;
+        setActive(button.dataset.tabTarget);
       });
+
+      const initiallyActive = nav.querySelector('.pdp-tabs__tab[aria-selected="true"]') || navButtons[0];
+      if (initiallyActive && initiallyActive.dataset.tabTarget) {
+        setActive(initiallyActive.dataset.tabTarget);
+      }
 
       panels.forEach((panel) => {
         const mobileTitle = panel.querySelector('.pdp-tabs__mobile-title');
         if (!mobileTitle) return;
-        mobileTitle.addEventListener('click', () => {
+        mobileTitle.addEventListener('click', (event) => {
+          event.preventDefault();
           if (window.matchMedia('(max-width: 767px)').matches) {
             panel.classList.toggle('is-active');
             return;
@@ -2804,6 +2835,8 @@
     };
 
     initAll();
+    document.addEventListener('DOMContentLoaded', initAll);
+    window.addEventListener('load', initAll);
     document.addEventListener('shopify:section:load', initAll);
     document.addEventListener('keydown', (event) => {
       if (event.key !== 'Escape') return;

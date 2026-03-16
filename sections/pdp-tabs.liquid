@@ -5,8 +5,24 @@
         {% if section.blocks.size > 0 %}
           {% for block in section.blocks %}
             {% assign tab_id = 'tab' | append: forloop.index %}
-            <li class="{% if forloop.first %}is-active{% endif %}" role="presentation" {{ block.shopify_attributes }}>
+            {% assign tab_icon = block.settings.icon_svg %}
+            {% if tab_icon == blank %}
+              {% case forloop.index %}
+                {% when 1 %}
+                  {% assign tab_icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"></path></svg>' %}
+                {% when 2 %}
+                  {% assign tab_icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M240-160q-50 0-85-35t-35-85H40v-440q0-33 23.5-56.5T120-800h560v160h120l120 160v200h-80q0 50-35 85t-85 35q-50 0-85-35t-35-85H360q0 50-35 85t-85 35Zm0-80q17 0 28.5-11.5T280-280q0-17-11.5-28.5T240-320q-17 0-28.5 11.5T200-280q0 17 11.5 28.5T240-240ZM120-360h32q17-18 39-29t49-11q27 0 49 11t39 29h272v-360H120v360Zm600 120q17 0 28.5-11.5T760-280q0-17-11.5-28.5T720-320q-17 0-28.5 11.5T680-280q0 17 11.5 28.5T720-240Zm-40-200h170l-90-120h-80v120ZM360-540Z"></path></svg>' %}
+                {% when 3 %}
+                  {% assign tab_icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"></path></svg>' %}
+                {% when 4 %}
+                  {% assign tab_icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M314-115q-104-48-169-145T80-479q0-26 2.5-51t8.5-49l-46 27-40-69 191-110 110 190-70 40-54-94q-11 27-16.5 56t-5.5 60q0 97 53 176.5T354-185l-40 70Zm306-485v-80h109q-46-57-111-88.5T480-800q-55 0-104 17t-90 48l-40-70q50-35 109-55t125-20q79 0 151 29.5T760-765v-55h80v220H620ZM594 0 403-110l110-190 69 40-57 98q118-17 196.5-107T800-480q0-11-.5-20.5T797-520h81q1 10 1.5 19.5t.5 20.5q0 135-80.5 241.5T590-95l44 26-40 69Z"></path></svg>' %}
+                {% else %}
+                  {% assign tab_icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M475-160q4 0 8-2t6-4l328-328q12-12 17.5-27t5.5-30q0-16-5.5-30.5T817-607L647-777q-11-12-25.5-17.5T591-800q-15 0-30 5.5T534-777l-11 11 74 75q15 14 22 32t7 38q0 42-28.5 70.5T527-522q-20 0-38.5-7T456-550l-75-74-175 175q-3 3-4.5 6.5T200-435q0 8 6 14.5t14 6.5q4 0 8-2t6-4l136-136 56 56-135 136q-3 3-4.5 6.5T285-350q0 8 6 14t14 6q4 0 8-2t6-4l136-135 56 56-135 136q-3 2-4.5 6t-1.5 8q0 8 6 14t14 6q4 0 7.5-1.5t6.5-4.5l136-135 56 56-136 136q-3 3-4.5 6.5T454-180q0 8 6.5 14t14.5 6Zm-1 80q-37 0-65.5-24.5T375-166q-34-5-57-28t-28-57q-34-5-56.5-28.5T206-336q-38-5-62-33t-24-66q0-20 7.5-38.5T149-506l232-231 131 131q2 3 6 4.5t8 1.5q9 0 15-5.5t6-14.5q0-4-1.5-8t-4.5-6L398-777q-11-12-25.5-17.5T342-800q-15 0-30 5.5T285-777L144-635q-9 9-15 21t-8 24q-2 12 0 24.5t8 23.5l-58 58q-17-23-25-50.5T40-590q2-28 14-54.5T87-692l141-141q24-23 53.5-35t60.5-12q31 0 60.5 12t52.5 35l11 11 11-11q24-23 53.5-35t60.5-12q31 0 60.5 12t52.5 35l169 169q23 23 35 53t12 61q0 31-12 60.5T873-437L545-110q-14 14-32.5 22T474-80Zm-99-560Z"></path></svg>' %}
+              {% endcase %}
+            {% endif %}
+            <li class="{% if forloop.first %}is-active{% endif %}" role="presentation">
               <button type="button" class="pdp-tabs__tab" data-tab-target="{{ tab_id }}" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+                {{ tab_icon }}
                 <span>{{ block.settings.label }}</span>
               </button>
             </li>
@@ -24,9 +40,25 @@
         {% if section.blocks.size > 0 %}
           {% for block in section.blocks %}
             {% assign tab_id = 'tab' | append: forloop.index %}
+            {% assign tab_icon = block.settings.icon_svg %}
+            {% assign tab_content = block.settings.content %}
+            {% if tab_content == blank or tab_content.size < 280 %}
+              {% case forloop.index %}
+                {% when 1 %}
+                  {% capture tab_content %}<h6>Preguntas y respuestas sobre la compra de una nueva cuerda para saltar</h6><h5>P:1</h5><h3>No estoy seguro de que cuerda elegir ?</h3><p>Entendemos completamente si eres nuevo en el salto con cuerda y no estas muy seguro de que cuerda elegir.</p><p><strong>Aqui tienes un mensaje de nuestro Fundador:</strong></p><p><em>Cada tipo de cuerda tiene sus propios beneficios y se adapta a un estilo diferente de salto.</em></p><h4>P:2</h4><h3>Tienen descuentos para Elevaterope.com?</h3><p>Definitivamente. Usa el cupon <strong>BTS15</strong> y obten 15% de descuento en tu pedido.</p><h4>P:3</h4><h3>Cual es la diferencia entre una cuerda con cuentas y una cuerda rapida?</h3><p>La cuerda rapida MAX ofrece velocidad y potencia, mientras la cuerda con cuentas ofrece mayor retroalimentacion para control y aprendizaje de trucos.</p>{% endcapture %}
+                {% when 2 %}
+                  {% capture tab_content %}<h6>Preguntas y respuestas sobre envios y devoluciones</h6><h5>P:1</h5><h3>Cual es su politica de devoluciones?</h3><p>No estas satisfecho, te devolvemos el dinero. Puedes devolver tu pedido hasta 90 dias despues de recibirlo si no fue usado.</p><h4>P:2</h4><h3>Que pasa si mi cuerda o las asas se rompen?</h3><p>90 dias de garantia en cuerdas y garantia de por vida en las asas.</p><h4>P:3</h4><h3>Cuanto tarda un reembolso?</h3><p>Generalmente entre 5 y 10 dias habiles.</p><h4>P:4</h4><h3>Cuanto tiempo tardara en llegar la cuerda?</h3><p>Los tiempos varian por region, desde 1-2 dias habiles hasta 12-15 dias habiles para destinos internacionales.</p>{% endcapture %}
+                {% when 3 %}
+                  {% capture tab_content %}<h6>Preguntas y respuestas sobre longitud de cuerda</h6><h5>Q:1</h5><h3>Son ajustables en longitud tus cuerdas para saltar?</h3><p>Si. Todas nuestras cuerdas son ajustables para adaptarse a tu altura y estilo de salto.</p><h4>Q:2</h4><h3>Cual es la longitud ideal para mi cuerda para saltar?</h3><p>Depende de tu tecnica y objetivo. Para principiantes, las asas deben llegar cerca de los hombros.</p>{% endcapture %}
+                {% when 4 %}
+                  {% capture tab_content %}<h6>Preguntas y respuestas sobre dominio de trucos y como convertirse en un mejor saltador</h6><h5>Q:1</h5><h3>Como puedo empezar a aprender trucos?</h3><p>Te recomendamos seguir una progresion para principiantes con practica constante y enfoque tecnico.</p>{% endcapture %}
+                {% else %}
+                  {% capture tab_content %}<h6>Preguntas y respuestas sobre la familia Elevate</h6><h5>Q:1</h5><h3>Como puedo unirme a la familia Elevate?</h3><p>Seleccionamos miembros por actitud, constancia y participacion en la comunidad de salto con cuerda.</p><h4>Q:2</h4><h3>Mi cupon de la familia Elevate no funciona</h3><p>Tu cupon funciona en el subdominio donde registraste tu cuenta de afiliado.</p>{% endcapture %}
+              {% endcase %}
+            {% endif %}
             <article class="pdp-tabs__panel {% if forloop.first %}is-active{% endif %}" id="{{ tab_id }}" role="tabpanel" {{ block.shopify_attributes }}>
-              <button type="button" class="pdp-tabs__mobile-title"><span>{{ block.settings.label }}</span></button>
-              <div class="pdp-tabs__panel-inner">{{ block.settings.content }}</div>
+              <button type="button" class="pdp-tabs__mobile-title">{% if tab_icon != blank %}{{ tab_icon }}{% endif %}<span>{{ block.settings.label }}</span></button>
+              <div class="pdp-tabs__panel-inner">{{ tab_content }}</div>
             </article>
           {% endfor %}
         {% else %}
@@ -56,6 +88,7 @@
       "name": "Tab",
       "settings": [
         {"type": "text", "id": "label", "label": "Label", "default": "TAB"},
+        {"type": "textarea", "id": "icon_svg", "label": "Icon SVG"},
         {
           "type": "richtext",
           "id": "content",
