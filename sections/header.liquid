@@ -899,6 +899,20 @@
     --padding-block-end: var(--header-padding);
   }
 
+  /* Force exact white header bar height per breakpoint */
+  .header__row--top .header__columns {
+    min-height: 86px;
+    --padding-block-start: 0px;
+    --padding-block-end: 0px;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 750px) {
+    .header__row--top .header__columns {
+      min-height: 79px;
+    }
+  }
+
   .header:not(.header--compact) .header__row--bottom {
     --header-padding: var(--padding-xs);
   }

@@ -1,0 +1,56 @@
+<div class="header-purple-subbar" role="region" aria-label="Mensaje destacado">
+  <p class="header-purple-subbar__text">
+    {{ section.settings.text }}
+  </p>
+</div>
+
+{% stylesheet %}
+  .header-purple-subbar {
+    background-color: rgb(85, 16, 221);
+    color: rgb(255, 255, 255);
+    height: 35.4px;
+    min-height: 35.4px;
+    max-height: 35.4px;
+    margin: 0;
+    padding: 6px 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .header-purple-subbar__text {
+    margin: 0;
+    color: inherit;
+    font-family: var(--font-body--family);
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 23.4px;
+    text-transform: uppercase;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Header Purple Subbar",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Texto",
+      "default": "SAY GOODBYE TO BORING CARDIO"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header Purple Subbar"
+    }
+  ]
+}
+{% endschema %}

@@ -109,10 +109,17 @@
         "enable_transparent_header_collection": false,
         "collection_color_scheme": "default"
       }
+    },
+    "header_purple_subbar_Yn4kRt": {
+      "type": "header-purple-subbar",
+      "settings": {
+        "text": "SAY GOODBYE TO BORING CARDIO"
+      }
     }
   },
   "order": [
     "header_announcements_9jGBFp",
-    "header_section"
+    "header_section",
+    "header_purple_subbar_Yn4kRt"
   ]
 }

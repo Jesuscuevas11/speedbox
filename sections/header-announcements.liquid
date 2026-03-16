@@ -2,19 +2,18 @@
 
 <div class="section-background announcement-bar-background color-{{ section.settings.color_scheme }}"></div>
 <aside
-  class="announcement-bar spacing-style section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}{% if section.blocks.size <= 1 %} announcement-bar--static{% endif %}"
+  class="announcement-bar spacing-style section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
   style="
     {% render 'spacing-padding', settings: section.settings %};
     --border-bottom-width: {{ section.settings.divider_width }}px;
     --announcement-duration: {{ section.settings.speed | times: 6 }}s;
-    --announcement-bar-height: 32.8px;
   "
 >
   <div class="announcement-bar-wrapper marquee">
     <div class="marquee__content" aria-live="polite">
-      {% if section.blocks.size > 1 %}
-        {% for repeat in (1..3) %}
-          <div class="marquee_annoucement list-inline" {% if repeat > 1 %}aria-hidden="true"{% endif %}>
+      {% for repeat in (1..3) %}
+        <div class="marquee_annoucement list-inline" {% if repeat > 1 %}aria-hidden="true"{% endif %}>
+          {% if section.blocks.size > 0 %}
             {% for block in section.blocks %}
               {% liquid
                 assign plain_text = block.settings.text | strip_newlines | strip_html | strip
@@ -50,48 +49,31 @@
                 {% endif %}
               </div>
             {% endfor %}
-          </div>
-        {% endfor %}
-      {% elsif section.blocks.size == 1 %}
-        {% assign first_block = section.blocks.first %}
-        {% assign first_text = first_block.settings.text | strip_newlines | strip_html | strip %}
-        <div class="marquee_annoucement list-inline">
-          <div class="announcement-bar__item" role="region" aria-label="Anuncio" {{ first_block.shopify_attributes }}>
-            {% if first_text == '' %}
-              <p class="announcement-bar__message h5">ENVIO GRATIS A PARTIR DE 125 EUR</p>
-            {% elsif first_block.settings.link != blank %}
-              <a class="announcement-bar__link link link--text focus-inset animate-arrow" href="{{ first_block.settings.link }}">
-                <p class="announcement-bar__message h5">{{ first_block.settings.text }}</p>
+          {% else %}
+            <div class="announcement-bar__item" role="region" aria-label="Anuncio">
+              <a class="announcement-bar__link link link--text focus-inset animate-arrow" href="/es/collections/all">
+                <p class="announcement-bar__message h5">ENVIO GRATIS A PARTIR DE 125 EUR</p>
               </a>
-            {% else %}
-              <p class="announcement-bar__message h5">{{ first_block.settings.text }}</p>
-            {% endif %}
-          </div>
+            </div>
+            <div class="announcement-bar__item" role="region" aria-label="Anuncio">
+              <p class="announcement-bar__message h5">GARANTIA DE POR VIDA (MANIJAS)</p>
+            </div>
+            <div class="announcement-bar__item" role="region" aria-label="Anuncio">
+              <p class="announcement-bar__message h5">90 DIAS DE DEVOLUCIONES GRATIS</p>
+            </div>
+            <div class="announcement-bar__item" role="region" aria-label="Anuncio">
+              <p class="announcement-bar__message h5">LOVED BY 50,000+ HAPPY CUSTOMERS</p>
+            </div>
+          {% endif %}
         </div>
-      {% else %}
-        <div class="marquee_annoucement list-inline">
-          <div class="announcement-bar__item" role="region" aria-label="Anuncio">
-            <a class="announcement-bar__link link link--text focus-inset animate-arrow" href="/es/collections/all">
-              <p class="announcement-bar__message h5">ENVIO GRATIS A PARTIR DE 125 EUR</p>
-            </a>
-          </div>
-          <div class="announcement-bar__item" role="region" aria-label="Anuncio">
-            <p class="announcement-bar__message h5">GARANTIA DE POR VIDA (MANIJAS)</p>
-          </div>
-          <div class="announcement-bar__item" role="region" aria-label="Anuncio">
-            <p class="announcement-bar__message h5">90 DIAS DE DEVOLUCIONES GRATIS</p>
-          </div>
-          <div class="announcement-bar__item" role="region" aria-label="Anuncio">
-            <p class="announcement-bar__message h5">LOVED BY 50,000+ HAPPY CUSTOMERS</p>
-          </div>
-        </div>
-      {% endif %}
+      {% endfor %}
     </div>
   </div>
 </aside>
 
 {% stylesheet %}
   .announcement-bar {
+    --announcement-bar-height: 32.8px;
     border-block-end: var(--border-bottom-width) solid var(--color-border);
     position: relative;
     z-index: 4;
@@ -179,19 +161,6 @@
     color: #ffffff;
   }
 
-  .announcement-bar--static .marquee__content {
-    width: 100%;
-    justify-content: center;
-    animation: none;
-  }
-
-  .announcement-bar--static .marquee_annoucement {
-    flex: 0 0 auto;
-    min-width: auto;
-    justify-content: center;
-    padding-inline: 0;
-  }
-
   @keyframes announcement-marquee {
     from {
       transform: translateX(0);
@@ -221,6 +190,10 @@
   }
 
   @media screen and (max-width: 749px) {
+    .announcement-bar {
+      --announcement-bar-height: 34.2px !important;
+    }
+
     .announcement-bar__message {
       letter-spacing: 0.02em;
     }
