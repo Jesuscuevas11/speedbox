@@ -112,6 +112,213 @@
   {{ additional_blocks }}
 </div>
 
+{% assign social_proof_id = 'SocialProof-' | append: section_id %}
+<section
+  id="{{ social_proof_id }}"
+  class="pdp-social-proof"
+  data-social-proof
+  data-product-image="{{ product.featured_image | image_url: width: 400 }}"
+>
+  <div class="pdp-social-proof__inner">
+    <div class="pdp-social-proof__hero">
+      <div class="pdp-social-proof__rating-block">
+        <div class="pdp-social-proof__stars" aria-hidden="true">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <div class="pdp-social-proof__rating-value">4.9</div>
+        <div class="pdp-social-proof__rating-copy">Based on <strong>1,200+ verified reviews</strong></div>
+        <a href="https://www.elevaterope.com/pages/reviews" class="pdp-social-proof__link" target="_blank" rel="noopener noreferrer">Read customer reviews</a>
+      </div>
+
+      <div class="pdp-social-proof__people">
+        <div class="pdp-social-proof__avatars" aria-hidden="true">
+          <span>SM</span>
+          <span>MR</span>
+          <span>AK</span>
+          <span>JL</span>
+          <span>ES</span>
+        </div>
+        <div class="pdp-social-proof__people-copy">Join <span>50,000+ athletes</span><br>who trust Elevate</div>
+      </div>
+    </div>
+
+    <div class="pdp-social-proof__activity-bar">
+      <div class="pdp-social-proof__activity-item">
+        <svg class="pdp-social-proof__activity-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+        </svg>
+        <span><strong data-viewer-count>38</strong> people viewing right now</span>
+      </div>
+
+      <div class="pdp-social-proof__activity-item">
+        <svg class="pdp-social-proof__activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <span>Last order <strong>2 minutes ago</strong></span>
+      </div>
+
+      <div class="pdp-social-proof__delivery-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="1" y="3" width="15" height="13"></rect>
+          <path d="M16 8h5l3 3v5h-3"></path>
+          <circle cx="5.5" cy="18.5" r="2.5"></circle>
+          <circle cx="18.5" cy="18.5" r="2.5"></circle>
+        </svg>
+        <span>Order in <strong data-countdown>18h 25m</strong> for same-day shipping</span>
+      </div>
+    </div>
+
+    <div class="pdp-social-proof__gallery-block">
+      <div class="pdp-social-proof__gallery-header">
+        <h3>Real Customers, Real Results</h3>
+        <a href="https://www.elevaterope.com/pages/reviews" class="pdp-social-proof__link" target="_blank" rel="noopener noreferrer">View all reviews</a>
+      </div>
+
+      <div class="pdp-social-proof__gallery-grid">
+        <button type="button" class="pdp-social-proof__video-card" data-video-id="3U5Bn-R5MLw">
+          <img src="https://img.youtube.com/vi/3U5Bn-R5MLw/hqdefault.jpg" alt="Customer review video 1" loading="lazy">
+          <span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span>
+        </button>
+        <button type="button" class="pdp-social-proof__video-card" data-video-id="zX3fB4iTZfU">
+          <img src="https://img.youtube.com/vi/zX3fB4iTZfU/hqdefault.jpg" alt="Customer review video 2" loading="lazy">
+          <span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span>
+        </button>
+        <button type="button" class="pdp-social-proof__video-card" data-video-id="ab-TSJ9YS9M">
+          <img src="https://img.youtube.com/vi/ab-TSJ9YS9M/hqdefault.jpg" alt="Customer review video 3" loading="lazy">
+          <span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span>
+        </button>
+        <button type="button" class="pdp-social-proof__video-card" data-video-id="jroNtnSdogs">
+          <img src="https://img.youtube.com/vi/jroNtnSdogs/hqdefault.jpg" alt="Customer review video 4" loading="lazy">
+          <span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span>
+        </button>
+        <button type="button" class="pdp-social-proof__video-card" data-video-id="N365_szEpaU">
+          <img src="https://img.youtube.com/vi/N365_szEpaU/hqdefault.jpg" alt="Customer review video 5" loading="lazy">
+          <span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span>
+        </button>
+        <button type="button" class="pdp-social-proof__video-card" data-video-id="JQchw5EAoWE">
+          <img src="https://img.youtube.com/vi/JQchw5EAoWE/hqdefault.jpg" alt="Customer review video 6" loading="lazy">
+          <span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="pdp-social-proof__trust-grid">
+      <article class="pdp-social-proof__trust-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <div>
+          <h4>90-Day Money Back</h4>
+          <p>Try risk-free for 3 months. Not satisfied? Full refund, no questions asked.</p>
+        </div>
+      </article>
+      <article class="pdp-social-proof__trust-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+        <div>
+          <h4>Lifetime Handle Warranty</h4>
+          <p>Premium handles guaranteed forever. 90-day warranty on cables and cords.</p>
+        </div>
+      </article>
+      <article class="pdp-social-proof__trust-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <div>
+          <h4 data-shipping-title>Free Shipping Over €50</h4>
+          <p data-shipping-description>Fast delivery to EU, UK, US, Canada and Australia. Worldwide available.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="pdp-social-proof__notification" data-notification hidden>
+    <img src="{{ product.featured_image | image_url: width: 200 }}" alt="{{ product.title | escape }}" data-notification-image>
+    <div class="pdp-social-proof__notification-copy">
+      <div data-notification-name>Carlos R. from Madrid</div>
+      <div data-notification-action>just purchased Athlete Bundle</div>
+      <div data-notification-time>2 minutes ago</div>
+    </div>
+    <button type="button" class="pdp-social-proof__notification-close" data-notification-close aria-label="Close notification">×</button>
+  </div>
+
+  <div class="pdp-social-proof__modal" data-video-modal hidden>
+    <div class="pdp-social-proof__modal-dialog">
+      <button type="button" class="pdp-social-proof__modal-close" data-close-video aria-label="Close video">×</button>
+      <iframe data-video-frame src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Customer review video"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="pdp-benefits" data-pdp-benefits>
+  <div class="pdp-benefits__inner">
+    <header class="pdp-benefits__header">
+      <div class="pdp-benefits__badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+          <path d="M5 3v4"></path>
+          <path d="M19 17v4"></path>
+          <path d="M3 5h4"></path>
+          <path d="M17 19h4"></path>
+        </svg>
+        Why Choose Elevate Rope
+      </div>
+      <h2 class="pdp-benefits__title">Transform Your Fitness in<br><span>Half the Time</span></h2>
+      <p class="pdp-benefits__subtitle">Stop wasting time and money on ineffective workouts. Get the results you deserve.</p>
+    </header>
+
+    <div class="pdp-benefits__grid">
+      <article class="pdp-benefits__card">
+        <div class="pdp-benefits__card-bg"></div>
+        <div class="pdp-benefits__card-content">
+          <div class="pdp-benefits__icon pdp-benefits__icon--orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+          </div>
+          <p class="pdp-benefits__label">THE PROBLEM</p>
+          <h3 class="pdp-benefits__problem">Spending hours at the gym with minimal results?</h3>
+          <div class="pdp-benefits__divider"></div>
+          <p class="pdp-benefits__label pdp-benefits__label--solution">THE SOLUTION</p>
+          <h4 class="pdp-benefits__solution">Burn 1,000+ calories per hour</h4>
+          <p class="pdp-benefits__description">Jump rope torches more calories than running, cycling, or most gym workouts in half the time. Get a full-body cardio workout that delivers real results, fast.</p>
+          <div class="pdp-benefits__stat"><span class="pdp-benefits__stat-number pdp-benefits__stat-number--orange">1,000</span><span>calories/hour</span></div>
+        </div>
+      </article>
+
+      <article class="pdp-benefits__card">
+        <div class="pdp-benefits__card-bg"></div>
+        <div class="pdp-benefits__card-content">
+          <div class="pdp-benefits__icon pdp-benefits__icon--purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <p class="pdp-benefits__label">THE PROBLEM</p>
+          <h3 class="pdp-benefits__problem">Tired of commuting to crowded gyms?</h3>
+          <div class="pdp-benefits__divider"></div>
+          <p class="pdp-benefits__label pdp-benefits__label--solution">THE SOLUTION</p>
+          <h4 class="pdp-benefits__solution">Train anywhere, anytime</h4>
+          <p class="pdp-benefits__description">No gym membership required. Your jump rope fits in your bag and works anywhere: home, park, hotel room, or backyard. Total fitness freedom in your pocket.</p>
+          <div class="pdp-benefits__stat"><span class="pdp-benefits__stat-number pdp-benefits__stat-number--purple">10 mins</span><span>to setup</span></div>
+        </div>
+      </article>
+
+      <article class="pdp-benefits__card">
+        <div class="pdp-benefits__card-bg"></div>
+        <div class="pdp-benefits__card-content">
+          <div class="pdp-benefits__icon pdp-benefits__icon--green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"></path><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path></svg>
+          </div>
+          <p class="pdp-benefits__label">THE PROBLEM</p>
+          <h3 class="pdp-benefits__problem">Wasting money on expensive gym memberships?</h3>
+          <div class="pdp-benefits__divider"></div>
+          <p class="pdp-benefits__label pdp-benefits__label--solution">THE SOLUTION</p>
+          <h4 class="pdp-benefits__solution">One-time investment, lifetime results</h4>
+          <p class="pdp-benefits__description">Cancel your monthly membership. This is a one-time purchase that pays for itself quickly, with zero recurring fees.</p>
+          <div class="pdp-benefits__stat"><span class="pdp-benefits__stat-number pdp-benefits__stat-number--green">EUR 0</span><span>monthly fees</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 {% stylesheet %}
   .product-information {
     gap: var(--gap) 0;
@@ -778,4 +985,869 @@
   body:has(#header-group #header-component[data-sticky-state='active']) .product-details.sticky-content--desktop {
     --sticky-header-offset: var(--header-height);
   }
+
+  .pdp-social-proof {
+    box-sizing: border-box;
+    color: rgb(45, 45, 45);
+    display: block;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 25.2px;
+    margin: 0;
+    padding: 0;
+    unicode-bidi: isolate;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .pdp-social-proof__inner {
+    width: calc(100% - 320px);
+    max-width: 1320.8px;
+    margin: 0 auto;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 40px 0 32px;
+  }
+
+  .pdp-social-proof__hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  .pdp-social-proof__rating-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 300px;
+  }
+
+  .pdp-social-proof__stars {
+    display: flex;
+    gap: 4px;
+    color: #5510dd;
+    font-size: 32px;
+    line-height: 1;
+  }
+
+  .pdp-social-proof__rating-value {
+    font-size: 56px;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .pdp-social-proof__rating-copy {
+    color: #666;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .pdp-social-proof__rating-copy strong,
+  .pdp-social-proof__people-copy,
+  .pdp-social-proof__trust-card h4,
+  .pdp-social-proof__activity-item strong {
+    color: #1a1a1a;
+  }
+
+  .pdp-social-proof__link {
+    width: fit-content;
+    color: #5510dd;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid #5510dd;
+    padding-bottom: 2px;
+  }
+
+  .pdp-social-proof__people {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .pdp-social-proof__avatars {
+    display: flex;
+    padding-left: 12px;
+  }
+
+  .pdp-social-proof__avatars span {
+    width: 48px;
+    height: 48px;
+    margin-left: -12px;
+    border-radius: 999px;
+    border: 3px solid #fff;
+    background: linear-gradient(135deg, #5510dd 0%, #7c3aed 100%);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .pdp-social-proof__people-copy {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .pdp-social-proof__people-copy span,
+  .pdp-social-proof__activity-item strong,
+  .pdp-social-proof__delivery-pill strong {
+    color: #5510dd;
+  }
+
+  .pdp-social-proof__activity-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    padding: 16px 20px;
+    border: 1px solid #e8dbff;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f8f5ff 0%, #faf8ff 100%);
+  }
+
+  .pdp-social-proof__activity-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .pdp-social-proof__activity-icon {
+    width: 20px;
+    height: 20px;
+    color: #5510dd;
+    animation: pdpSocialProofPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pdpSocialProofPulse {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.7;
+      transform: scale(0.95);
+    }
+  }
+
+  .pdp-social-proof__delivery-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .pdp-social-proof__delivery-pill svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .pdp-social-proof__delivery-pill strong {
+    background: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .pdp-social-proof__gallery-block {
+    margin-bottom: 32px;
+  }
+
+  .pdp-social-proof__gallery-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .pdp-social-proof__gallery-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+
+  .pdp-social-proof__gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+  }
+
+  .pdp-social-proof__video-card {
+    position: relative;
+    padding: 0;
+    border: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 16 / 9;
+    background: #f0f0f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .pdp-social-proof__video-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(85, 16, 221, 0.2);
+  }
+
+  .pdp-social-proof__video-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .pdp-social-proof__video-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .pdp-social-proof__play-button {
+    width: 56px;
+    height: 56px;
+    border-radius: 999px;
+    background: #5510dd;
+    position: relative;
+  }
+
+  .pdp-social-proof__play-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    border-left: 14px solid #fff;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+  }
+
+  .pdp-social-proof__trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .pdp-social-proof__trust-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .pdp-social-proof__trust-card svg {
+    width: 24px;
+    height: 24px;
+    color: #5510dd;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .pdp-social-proof__trust-card h4 {
+    margin: 0 0 4px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .pdp-social-proof__trust-card p {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .pdp-social-proof__notification {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 320px;
+    padding: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .pdp-social-proof__notification[hidden],
+  .pdp-social-proof__modal[hidden] {
+    display: none;
+  }
+
+  .pdp-social-proof__notification img {
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    object-fit: contain;
+    background: #f9f9f9;
+    padding: 4px;
+    flex-shrink: 0;
+  }
+
+  .pdp-social-proof__notification-copy {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pdp-social-proof__notification-copy > :first-child {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+
+  .pdp-social-proof__notification-copy > :nth-child(2) {
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+  }
+
+  .pdp-social-proof__notification-copy > :last-child {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #999;
+  }
+
+  .pdp-social-proof__notification-close,
+  .pdp-social-proof__modal-close {
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+
+  .pdp-social-proof__notification-close {
+    width: 20px;
+    height: 20px;
+    color: #999;
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .pdp-social-proof__modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  .pdp-social-proof__modal-dialog {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .pdp-social-proof__modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    font-size: 32px;
+  }
+
+  .pdp-social-proof__modal iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .pdp-benefits {
+    box-sizing: border-box;
+    color: rgb(45, 45, 45);
+    display: block;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 25.2px;
+    margin: 0;
+    padding: 0;
+    unicode-bidi: isolate;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .pdp-benefits__inner {
+    width: calc(100% - 320px);
+    max-width: 1320.8px;
+    margin: 0 auto;
+    padding: 64px 0;
+    background: linear-gradient(to bottom, #f9fafb, #ffffff);
+  }
+
+  .pdp-benefits__header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .pdp-benefits__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f3e8ff;
+    color: #7c3aed;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .pdp-benefits__badge svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .pdp-benefits__title {
+    margin: 0 0 16px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #111827;
+  }
+
+  .pdp-benefits__title span {
+    background: linear-gradient(to right, #5510dd, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .pdp-benefits__subtitle {
+    max-width: 672px;
+    margin: 0 auto;
+    font-size: 20px;
+    color: #6b7280;
+  }
+
+  .pdp-benefits__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    justify-items: center;
+    gap: 24px;
+  }
+
+  .pdp-benefits__card {
+    position: relative;
+    width: min(370px, 100%);
+    min-height: 349px;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid #f3f4f6;
+    background: #fff;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .pdp-benefits__card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: #e9d5ff;
+  }
+
+  .pdp-benefits__card-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: linear-gradient(to bottom right, #faf5ff, #fce7f3);
+  }
+
+  .pdp-benefits__card:hover .pdp-benefits__card-bg {
+    opacity: 1;
+  }
+
+  .pdp-benefits__card-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    padding: 22px;
+  }
+
+  .pdp-benefits__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    color: #fff;
+  }
+
+  .pdp-benefits__icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .pdp-benefits__icon--orange { background: linear-gradient(to bottom right, #f97316, #dc2626); }
+  .pdp-benefits__icon--purple { background: linear-gradient(to bottom right, #5510dd, #ec4899); }
+  .pdp-benefits__icon--green { background: linear-gradient(to bottom right, #10b981, #059669); }
+
+  .pdp-benefits__label {
+    margin: 0 0 4px;
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .pdp-benefits__label--solution {
+    color: #5510dd;
+  }
+
+  .pdp-benefits__problem {
+    margin: 0 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #1f2937;
+  }
+
+  .pdp-benefits__divider {
+    width: 48px;
+    height: 4px;
+    border-radius: 999px;
+    margin: 10px 0;
+    background: linear-gradient(to right, #5510dd, #ec4899);
+  }
+
+  .pdp-benefits__solution {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.3;
+  }
+
+  .pdp-benefits__description {
+    margin: 0;
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.45;
+    display: block;
+  }
+
+  .pdp-benefits__stat {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #f3f4f6;
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .pdp-benefits__stat-number {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .pdp-benefits__stat-number--orange { background-image: linear-gradient(to right, #f97316, #dc2626); }
+  .pdp-benefits__stat-number--purple { background-image: linear-gradient(to right, #5510dd, #ec4899); }
+  .pdp-benefits__stat-number--green { background-image: linear-gradient(to right, #10b981, #059669); }
+
+  @media screen and (max-width: 768px) {
+    .pdp-social-proof__inner {
+      width: calc(100% - 32px);
+      padding: 32px 0 24px;
+    }
+
+    .pdp-social-proof__hero {
+      gap: 32px;
+      margin-bottom: 24px;
+    }
+
+    .pdp-social-proof__rating-block {
+      min-width: 0;
+      width: 100%;
+    }
+
+    .pdp-social-proof__rating-value {
+      font-size: 48px;
+    }
+
+    .pdp-social-proof__stars {
+      font-size: 28px;
+    }
+
+    .pdp-social-proof__people {
+      width: 100%;
+    }
+
+    .pdp-social-proof__avatars span {
+      width: 42px;
+      height: 42px;
+    }
+
+    .pdp-social-proof__activity-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 14px 16px;
+    }
+
+    .pdp-social-proof__delivery-pill {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .pdp-social-proof__gallery-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .pdp-social-proof__gallery-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .pdp-social-proof__trust-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .pdp-social-proof__notification {
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      max-width: none;
+    }
+
+    .pdp-social-proof__modal-close {
+      top: -50px;
+      right: 10px;
+    }
+
+    .pdp-benefits__inner {
+      width: calc(100% - 32px);
+      padding: 48px 0;
+    }
+
+    .pdp-benefits__header {
+      margin-bottom: 40px;
+    }
+
+    .pdp-benefits__title {
+      font-size: 36px;
+    }
+
+    .pdp-benefits__subtitle {
+      font-size: 18px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .pdp-benefits__grid {
+      grid-template-columns: repeat(3, 413px);
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .pdp-benefits__card {
+      width: 413px;
+      min-height: 327px;
+    }
+
+    .pdp-benefits__card-content {
+      padding: 18px;
+    }
+
+    .pdp-benefits__title {
+      font-size: 48px;
+    }
+  }
 {% endstylesheet %}
+
+<script>
+  (() => {
+    const customers = [
+      { name: 'Carlos R.', location: 'Madrid', product: 'Athlete Bundle' },
+      { name: 'Sarah M.', location: 'London', product: 'Ascent MAX Bundle' },
+      { name: 'Anna K.', location: 'Berlin', product: 'Athlete Bundle' },
+      { name: 'James L.', location: 'Sydney', product: 'Ascent Bundle' },
+      { name: 'Emma S.', location: 'Toronto', product: 'Ascent MAX Bundle' },
+    ];
+
+    const initSocialProof = (root) => {
+      if (!root || root.dataset.initialized === 'true') return;
+      root.dataset.initialized = 'true';
+
+      const viewerCount = root.querySelector('[data-viewer-count]');
+      const countdown = root.querySelector('[data-countdown]');
+      const shippingTitle = root.querySelector('[data-shipping-title]');
+      const shippingDescription = root.querySelector('[data-shipping-description]');
+      const modal = root.querySelector('[data-video-modal]');
+      const videoFrame = root.querySelector('[data-video-frame]');
+      const notification = root.querySelector('[data-notification]');
+      const notificationImage = root.querySelector('[data-notification-image]');
+      const notificationName = root.querySelector('[data-notification-name]');
+      const notificationAction = root.querySelector('[data-notification-action]');
+      const notificationTime = root.querySelector('[data-notification-time]');
+      const notificationClose = root.querySelector('[data-notification-close]');
+      const imageSrc = root.dataset.productImage;
+      let customerIndex = 0;
+
+      const updateViewerCount = () => {
+        if (!viewerCount) return;
+        viewerCount.textContent = String(Math.floor(Math.random() * 30) + 35);
+      };
+
+      const updateCountdown = () => {
+        if (!countdown) return;
+        const now = new Date();
+        const cutoff = new Date(now);
+        cutoff.setHours(21, 0, 0, 0);
+
+        if (now >= cutoff) {
+          cutoff.setDate(cutoff.getDate() + 1);
+        }
+
+        const diff = cutoff - now;
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        countdown.textContent = `${hours}h ${minutes}m`;
+      };
+
+      const updateShippingInfo = () => {
+        if (!shippingTitle || !shippingDescription) return;
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        const locale = (navigator.language || '').toLowerCase();
+
+        if (timezone.includes('Europe') || ['de', 'fr', 'it', 'es', 'nl', 'be', 'at', 'pt', 'ie', 'se', 'dk', 'fi', 'no'].some((code) => locale.startsWith(code))) {
+          shippingTitle.textContent = 'Free Shipping Over €50';
+          shippingDescription.textContent = 'Fast delivery to EU, UK, US, Canada and Australia. Worldwide available.';
+          return;
+        }
+
+        if (timezone.includes('London') || locale.startsWith('en-gb')) {
+          shippingTitle.textContent = 'Free Shipping Over £42.50';
+          shippingDescription.textContent = 'Fast delivery to EU, UK, US, Canada and Australia. Worldwide available.';
+          return;
+        }
+
+        if (timezone.includes('America') || locale.startsWith('en-us')) {
+          shippingTitle.textContent = 'Free Shipping Over $54';
+          shippingDescription.textContent = 'Fast delivery to EU, UK, US, Canada and Australia. Worldwide available.';
+          return;
+        }
+
+        shippingTitle.textContent = 'Worldwide Shipping Available';
+        shippingDescription.textContent = 'Fast international delivery. Free shipping available in select regions.';
+      };
+
+      const showNotification = () => {
+        if (!notification) return;
+        const customer = customers[customerIndex % customers.length];
+        customerIndex += 1;
+        if (notificationImage && imageSrc) notificationImage.src = imageSrc;
+        if (notificationName) notificationName.textContent = `${customer.name} from ${customer.location}`;
+        if (notificationAction) notificationAction.textContent = `just purchased ${customer.product}`;
+        if (notificationTime) notificationTime.textContent = `${Math.floor(Math.random() * 5) + 1} minutes ago`;
+        notification.hidden = false;
+        window.setTimeout(() => {
+          notification.hidden = true;
+        }, 5000);
+      };
+
+      root.querySelectorAll('[data-video-id]').forEach((button) => {
+        button.addEventListener('click', () => {
+          if (!modal || !videoFrame) return;
+          const videoId = button.getAttribute('data-video-id');
+          videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+          modal.hidden = false;
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      root.querySelector('[data-close-video]')?.addEventListener('click', () => {
+        if (!modal || !videoFrame) return;
+        modal.hidden = true;
+        videoFrame.src = '';
+        document.body.style.overflow = '';
+      });
+
+      modal?.addEventListener('click', (event) => {
+        if (event.target !== modal || !videoFrame) return;
+        modal.hidden = true;
+        videoFrame.src = '';
+        document.body.style.overflow = '';
+      });
+
+      notificationClose?.addEventListener('click', () => {
+        if (notification) notification.hidden = true;
+      });
+
+      updateViewerCount();
+      updateCountdown();
+      updateShippingInfo();
+      window.setInterval(updateViewerCount, 8000);
+      window.setInterval(updateCountdown, 60000);
+      window.setTimeout(showNotification, 3000);
+      window.setInterval(showNotification, 30000);
+    };
+
+    const initAll = () => {
+      document.querySelectorAll('[data-social-proof]').forEach(initSocialProof);
+    };
+
+    initAll();
+    document.addEventListener('shopify:section:load', initAll);
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      document.querySelectorAll('[data-video-modal]').forEach((modal) => {
+        const iframe = modal.querySelector('[data-video-frame]');
+        modal.hidden = true;
+        if (iframe) iframe.src = '';
+        document.body.style.overflow = '';
+      });
+    });
+  })();
+</script>
