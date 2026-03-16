@@ -911,6 +911,40 @@
     .header__row--top .header__columns {
       min-height: 79px;
     }
+
+    .header__row--top .header-logo {
+      margin-left: 21px;
+    }
+
+    #header-component .header__row--top header-menu.header-menu .header-menu__inner {
+      transform: translateX(46px) !important;
+    }
+
+    #header-component .header__row--top header-menu.header-menu .overflow-menu::part(list) {
+      justify-content: flex-start !important;
+      padding-inline-start: 46px !important;
+    }
+
+    #header-component .header__row--top header-menu.header-menu .menu-list,
+    #header-component .header__row--top header-menu.header-menu .menu-list__link,
+    #header-component .header__row--top header-menu.header-menu .menu-list__link-title,
+    #header-component .header__row--top header-menu.header-menu .menu-list__list-item[slot='overflow'] .menu-list__link {
+      font-family: 'Roboto Condensed', var(--font-body--family), sans-serif !important;
+      font-size: 15px !important;
+      font-style: normal !important;
+      font-weight: 700 !important;
+      line-height: 25.2px !important;
+      text-transform: uppercase !important;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #header-component .header__row--top header-menu.header-menu .menu-list__list-item {
+      margin-right: 47px !important;
+    }
+
+    #header-component .header__row--top header-menu.header-menu .menu-list__list-item:last-child {
+      margin-right: 0 !important;
+    }
   }
 
   @media screen and (max-width: 749px) {
