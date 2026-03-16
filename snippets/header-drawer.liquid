@@ -777,6 +777,13 @@
     height: var(--icon-size-xs);
   }
 
+  @media screen and (max-width: 749px) {
+    .menu-drawer-container .header__icon--summary .header-drawer-icon--open {
+      width: calc(var(--icon-size-xs) * 1.35);
+      height: calc(var(--icon-size-xs) * 1.35);
+    }
+  }
+
   .menu-drawer__featured-content {
     z-index: var(--layer-base);
     container-type: inline-size;
