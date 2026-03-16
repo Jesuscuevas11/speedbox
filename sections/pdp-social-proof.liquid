@@ -1,0 +1,94 @@
+{% liquid
+  assign pdp_product = closest.product | default: product
+  assign social_proof_id = 'SocialProof-' | append: section.id
+%}
+
+<section
+  id="{{ social_proof_id }}"
+  class="pdp-social-proof section section--full-width"
+  data-social-proof
+  data-product-image="{{ pdp_product.featured_image | image_url: width: 400 }}"
+>
+  <div class="pdp-social-proof__inner">
+    <div class="pdp-social-proof__hero">
+      <div class="pdp-social-proof__rating-block">
+        <div class="pdp-social-proof__stars" aria-hidden="true"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="pdp-social-proof__rating-value">4.9</div>
+        <div class="pdp-social-proof__rating-copy">Based on <strong>1,200+ verified reviews</strong></div>
+        <a href="https://www.elevaterope.com/pages/reviews" class="pdp-social-proof__link" target="_blank" rel="noopener noreferrer">Read customer reviews</a>
+      </div>
+
+      <div class="pdp-social-proof__people">
+        <div class="pdp-social-proof__avatars" aria-hidden="true"><span>SM</span><span>MR</span><span>AK</span><span>JL</span><span>ES</span></div>
+        <div class="pdp-social-proof__people-copy">Join <span>50,000+ athletes</span><br>who trust Elevate</div>
+      </div>
+    </div>
+
+    <div class="pdp-social-proof__activity-bar">
+      <div class="pdp-social-proof__activity-item">
+        <svg class="pdp-social-proof__activity-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle></svg>
+        <span><strong data-viewer-count>38</strong> people viewing right now</span>
+      </div>
+
+      <div class="pdp-social-proof__activity-item">
+        <svg class="pdp-social-proof__activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        <span>Last order <strong>2 minutes ago</strong></span>
+      </div>
+
+      <div class="pdp-social-proof__delivery-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="3" width="15" height="13"></rect><path d="M16 8h5l3 3v5h-3"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+        <span>Order in <strong data-countdown>18h 25m</strong> for same-day shipping</span>
+      </div>
+    </div>
+
+    <div class="pdp-social-proof__gallery-block">
+      <div class="pdp-social-proof__gallery-header">
+        <h3>Real Customers, Real Results</h3>
+        <a href="https://www.elevaterope.com/pages/reviews" class="pdp-social-proof__link" target="_blank" rel="noopener noreferrer">View all reviews</a>
+      </div>
+
+      <div class="pdp-social-proof__gallery-grid">
+        <button type="button" class="pdp-social-proof__video-card" data-video-id="3U5Bn-R5MLw"><img src="https://img.youtube.com/vi/3U5Bn-R5MLw/hqdefault.jpg" alt="Customer review video 1" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
+        <button type="button" class="pdp-social-proof__video-card" data-video-id="zX3fB4iTZfU"><img src="https://img.youtube.com/vi/zX3fB4iTZfU/hqdefault.jpg" alt="Customer review video 2" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
+        <button type="button" class="pdp-social-proof__video-card" data-video-id="ab-TSJ9YS9M"><img src="https://img.youtube.com/vi/ab-TSJ9YS9M/hqdefault.jpg" alt="Customer review video 3" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
+        <button type="button" class="pdp-social-proof__video-card" data-video-id="jroNtnSdogs"><img src="https://img.youtube.com/vi/jroNtnSdogs/hqdefault.jpg" alt="Customer review video 4" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
+        <button type="button" class="pdp-social-proof__video-card" data-video-id="N365_szEpaU"><img src="https://img.youtube.com/vi/N365_szEpaU/hqdefault.jpg" alt="Customer review video 5" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
+        <button type="button" class="pdp-social-proof__video-card" data-video-id="JQchw5EAoWE"><img src="https://img.youtube.com/vi/JQchw5EAoWE/hqdefault.jpg" alt="Customer review video 6" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
+      </div>
+    </div>
+
+    <div class="pdp-social-proof__trust-grid">
+      <article class="pdp-social-proof__trust-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg><div><h4>90-Day Money Back</h4><p>Try risk-free for 3 months. Not satisfied? Full refund, no questions asked.</p></div></article>
+      <article class="pdp-social-proof__trust-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg><div><h4>Lifetime Handle Warranty</h4><p>Premium handles guaranteed forever. 90-day warranty on cables and cords.</p></div></article>
+      <article class="pdp-social-proof__trust-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><div><h4 data-shipping-title>Free Shipping Over EUR 50</h4><p data-shipping-description>Fast delivery to EU, UK, US, Canada and Australia. Worldwide available.</p></div></article>
+    </div>
+  </div>
+
+  <div class="pdp-social-proof__notification" data-notification hidden>
+    <img src="{{ pdp_product.featured_image | image_url: width: 200 }}" alt="{{ pdp_product.title | escape }}" data-notification-image>
+    <div class="pdp-social-proof__notification-copy">
+      <div data-notification-name>Carlos R. from Madrid</div>
+      <div data-notification-action>just purchased Athlete Bundle</div>
+      <div data-notification-time>2 minutes ago</div>
+    </div>
+    <button type="button" class="pdp-social-proof__notification-close" data-notification-close aria-label="Close notification">x</button>
+  </div>
+
+  <div class="pdp-social-proof__modal" data-video-modal hidden>
+    <div class="pdp-social-proof__modal-dialog">
+      <button type="button" class="pdp-social-proof__modal-close" data-close-video aria-label="Close video">x</button>
+      <iframe data-video-frame src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Customer review video"></iframe>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PDP Reviews",
+  "tag": "section",
+  "class": "section section--full-width",
+  "disabled_on": {"groups": ["header", "footer"]},
+  "settings": [],
+  "presets": [{"name": "PDP Reviews"}]
+}
+{% endschema %}
