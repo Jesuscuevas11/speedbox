@@ -1,6 +1,8 @@
 {% liquid
   assign pdp_product = closest.product | default: product
   assign social_proof_id = 'SocialProof-' | append: section.id
+  assign video_blocks = section.blocks | where: 'type', 'video_card'
+  assign trust_blocks = section.blocks | where: 'type', 'trust_card'
 %}
 
 <section
@@ -13,63 +15,90 @@
     <div class="pdp-social-proof__hero">
       <div class="pdp-social-proof__rating-block">
         <div class="pdp-social-proof__stars" aria-hidden="true"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <div class="pdp-social-proof__rating-value">4.9</div>
-        <div class="pdp-social-proof__rating-copy">Based on <strong>1,200+ verified reviews</strong></div>
-        <a href="https://www.elevaterope.com/pages/reviews" class="pdp-social-proof__link" target="_blank" rel="noopener noreferrer">Read customer reviews</a>
+        <div class="pdp-social-proof__rating-value">{{ section.settings.rating_value }}</div>
+        <div class="pdp-social-proof__rating-copy">{{ section.settings.rating_copy }}</div>
+        <a href="{{ section.settings.reviews_link_url | default: 'https://www.elevaterope.com/pages/reviews' }}" class="pdp-social-proof__link" target="_blank" rel="noopener noreferrer">{{ section.settings.reviews_link_label }}</a>
       </div>
 
       <div class="pdp-social-proof__people">
-        <div class="pdp-social-proof__avatars" aria-hidden="true"><span>SM</span><span>MR</span><span>AK</span><span>JL</span><span>ES</span></div>
-        <div class="pdp-social-proof__people-copy">Join <span>50,000+ athletes</span><br>who trust Elevate</div>
+        <div class="pdp-social-proof__avatars" aria-hidden="true">
+          <span>{{ section.settings.avatar_1 }}</span>
+          <span>{{ section.settings.avatar_2 }}</span>
+          <span>{{ section.settings.avatar_3 }}</span>
+          <span>{{ section.settings.avatar_4 }}</span>
+          <span>{{ section.settings.avatar_5 }}</span>
+        </div>
+        <div class="pdp-social-proof__people-copy">{{ section.settings.athletes_line_1 }}<br><span>{{ section.settings.athletes_line_2 }}</span></div>
       </div>
     </div>
 
     <div class="pdp-social-proof__activity-bar">
       <div class="pdp-social-proof__activity-item">
         <svg class="pdp-social-proof__activity-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle></svg>
-        <span><strong data-viewer-count>38</strong> people viewing right now</span>
+        <span><strong data-viewer-count>{{ section.settings.viewer_count }}</strong> {{ section.settings.viewer_copy }}</span>
       </div>
 
       <div class="pdp-social-proof__activity-item">
         <svg class="pdp-social-proof__activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-        <span>Last order <strong>2 minutes ago</strong></span>
+        <span>{{ section.settings.last_order_prefix }} <strong>{{ section.settings.last_order_emphasis }}</strong></span>
       </div>
 
       <div class="pdp-social-proof__delivery-pill">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="3" width="15" height="13"></rect><path d="M16 8h5l3 3v5h-3"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-        <span>Order in <strong data-countdown>18h 25m</strong> for same-day shipping</span>
+        <span>{{ section.settings.countdown_prefix }} <strong data-countdown>{{ section.settings.countdown_value }}</strong> {{ section.settings.countdown_suffix }}</span>
       </div>
     </div>
 
     <div class="pdp-social-proof__gallery-block">
       <div class="pdp-social-proof__gallery-header">
-        <h3>Real Customers, Real Results</h3>
-        <a href="https://www.elevaterope.com/pages/reviews" class="pdp-social-proof__link" target="_blank" rel="noopener noreferrer">View all reviews</a>
+        <h3>{{ section.settings.gallery_heading }}</h3>
+        <a href="{{ section.settings.gallery_link_url | default: 'https://www.elevaterope.com/pages/reviews' }}" class="pdp-social-proof__link" target="_blank" rel="noopener noreferrer">{{ section.settings.gallery_link_label }}</a>
       </div>
 
       <div class="pdp-social-proof__gallery-grid">
-        <button type="button" class="pdp-social-proof__video-card" data-video-id="3U5Bn-R5MLw"><img src="https://img.youtube.com/vi/3U5Bn-R5MLw/hqdefault.jpg" alt="Customer review video 1" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
-        <button type="button" class="pdp-social-proof__video-card" data-video-id="zX3fB4iTZfU"><img src="https://img.youtube.com/vi/zX3fB4iTZfU/hqdefault.jpg" alt="Customer review video 2" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
-        <button type="button" class="pdp-social-proof__video-card" data-video-id="ab-TSJ9YS9M"><img src="https://img.youtube.com/vi/ab-TSJ9YS9M/hqdefault.jpg" alt="Customer review video 3" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
-        <button type="button" class="pdp-social-proof__video-card" data-video-id="jroNtnSdogs"><img src="https://img.youtube.com/vi/jroNtnSdogs/hqdefault.jpg" alt="Customer review video 4" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
-        <button type="button" class="pdp-social-proof__video-card" data-video-id="N365_szEpaU"><img src="https://img.youtube.com/vi/N365_szEpaU/hqdefault.jpg" alt="Customer review video 5" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
-        <button type="button" class="pdp-social-proof__video-card" data-video-id="JQchw5EAoWE"><img src="https://img.youtube.com/vi/JQchw5EAoWE/hqdefault.jpg" alt="Customer review video 6" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
+        {% if video_blocks.size > 0 %}
+          {% for block in video_blocks %}
+            <button type="button" class="pdp-social-proof__video-card" data-video-id="{{ block.settings.video_id }}" {{ block.shopify_attributes }}>
+              <img src="https://img.youtube.com/vi/{{ block.settings.video_id }}/hqdefault.jpg" alt="{{ block.settings.alt | escape }}" loading="lazy">
+              <span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span>
+            </button>
+          {% endfor %}
+        {% else %}
+          <button type="button" class="pdp-social-proof__video-card" data-video-id="3U5Bn-R5MLw"><img src="https://img.youtube.com/vi/3U5Bn-R5MLw/hqdefault.jpg" alt="Customer review video 1" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
+          <button type="button" class="pdp-social-proof__video-card" data-video-id="zX3fB4iTZfU"><img src="https://img.youtube.com/vi/zX3fB4iTZfU/hqdefault.jpg" alt="Customer review video 2" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
+          <button type="button" class="pdp-social-proof__video-card" data-video-id="ab-TSJ9YS9M"><img src="https://img.youtube.com/vi/ab-TSJ9YS9M/hqdefault.jpg" alt="Customer review video 3" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
+          <button type="button" class="pdp-social-proof__video-card" data-video-id="jroNtnSdogs"><img src="https://img.youtube.com/vi/jroNtnSdogs/hqdefault.jpg" alt="Customer review video 4" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
+          <button type="button" class="pdp-social-proof__video-card" data-video-id="N365_szEpaU"><img src="https://img.youtube.com/vi/N365_szEpaU/hqdefault.jpg" alt="Customer review video 5" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
+          <button type="button" class="pdp-social-proof__video-card" data-video-id="JQchw5EAoWE"><img src="https://img.youtube.com/vi/JQchw5EAoWE/hqdefault.jpg" alt="Customer review video 6" loading="lazy"><span class="pdp-social-proof__video-overlay"><span class="pdp-social-proof__play-button"></span></span></button>
+        {% endif %}
       </div>
     </div>
 
     <div class="pdp-social-proof__trust-grid">
-      <article class="pdp-social-proof__trust-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg><div><h4>90-Day Money Back</h4><p>Try risk-free for 3 months. Not satisfied? Full refund, no questions asked.</p></div></article>
-      <article class="pdp-social-proof__trust-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg><div><h4>Lifetime Handle Warranty</h4><p>Premium handles guaranteed forever. 90-day warranty on cables and cords.</p></div></article>
-      <article class="pdp-social-proof__trust-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><div><h4 data-shipping-title>Free Shipping Over EUR 50</h4><p data-shipping-description>Fast delivery to EU, UK, US, Canada and Australia. Worldwide available.</p></div></article>
+      {% if trust_blocks.size > 0 %}
+        {% for block in trust_blocks %}
+          <article class="pdp-social-proof__trust-card" {{ block.shopify_attributes }}>
+            {{ block.settings.icon_svg }}
+            <div>
+              <h4 {% if block.settings.is_shipping %}data-shipping-title{% endif %}>{{ block.settings.title }}</h4>
+              <p {% if block.settings.is_shipping %}data-shipping-description{% endif %}>{{ block.settings.description }}</p>
+            </div>
+          </article>
+        {% endfor %}
+      {% else %}
+        <article class="pdp-social-proof__trust-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg><div><h4>90-Day Money Back</h4><p>Try risk-free for 3 months. Not satisfied? Full refund, no questions asked.</p></div></article>
+        <article class="pdp-social-proof__trust-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg><div><h4>Lifetime Handle Warranty</h4><p>Premium handles guaranteed forever. 90-day warranty on cables and cords.</p></div></article>
+        <article class="pdp-social-proof__trust-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><div><h4 data-shipping-title>Free Shipping Over EUR 50</h4><p data-shipping-description>Fast delivery to EU, UK, US, Canada and Australia. Worldwide available.</p></div></article>
+      {% endif %}
     </div>
   </div>
 
   <div class="pdp-social-proof__notification" data-notification hidden>
     <img src="{{ pdp_product.featured_image | image_url: width: 200 }}" alt="{{ pdp_product.title | escape }}" data-notification-image>
     <div class="pdp-social-proof__notification-copy">
-      <div data-notification-name>Carlos R. from Madrid</div>
-      <div data-notification-action>just purchased Athlete Bundle</div>
-      <div data-notification-time>2 minutes ago</div>
+      <div data-notification-name>{{ section.settings.notification_name }}</div>
+      <div data-notification-action>{{ section.settings.notification_action }}</div>
+      <div data-notification-time>{{ section.settings.notification_time }}</div>
     </div>
     <button type="button" class="pdp-social-proof__notification-close" data-notification-close aria-label="Close notification">x</button>
   </div>
@@ -88,7 +117,72 @@
   "tag": "section",
   "class": "section section--full-width",
   "disabled_on": {"groups": ["header", "footer"]},
-  "settings": [],
-  "presets": [{"name": "PDP Reviews"}]
+  "settings": [
+    {"type": "text", "id": "rating_value", "label": "Rating", "default": "4.9"},
+    {"type": "inline_richtext", "id": "rating_copy", "label": "Rating copy", "default": "Based on 1,200+ verified reviews"},
+    {"type": "url", "id": "reviews_link_url", "label": "Reviews link"},
+    {"type": "text", "id": "reviews_link_label", "label": "Reviews link label", "default": "Read customer reviews"},
+
+    {"type": "text", "id": "avatar_1", "label": "Avatar 1", "default": "SM"},
+    {"type": "text", "id": "avatar_2", "label": "Avatar 2", "default": "MR"},
+    {"type": "text", "id": "avatar_3", "label": "Avatar 3", "default": "AK"},
+    {"type": "text", "id": "avatar_4", "label": "Avatar 4", "default": "JL"},
+    {"type": "text", "id": "avatar_5", "label": "Avatar 5", "default": "ES"},
+    {"type": "text", "id": "athletes_line_1", "label": "Athletes line 1", "default": "Join 50,000+ athletes"},
+    {"type": "text", "id": "athletes_line_2", "label": "Athletes line 2", "default": "who trust Elevate"},
+
+    {"type": "text", "id": "viewer_count", "label": "Viewer count", "default": "38"},
+    {"type": "text", "id": "viewer_copy", "label": "Viewer copy", "default": "people viewing right now"},
+    {"type": "text", "id": "last_order_prefix", "label": "Last order prefix", "default": "Last order"},
+    {"type": "text", "id": "last_order_emphasis", "label": "Last order value", "default": "2 minutes ago"},
+    {"type": "text", "id": "countdown_prefix", "label": "Countdown prefix", "default": "Order in"},
+    {"type": "text", "id": "countdown_value", "label": "Countdown value", "default": "18h 25m"},
+    {"type": "text", "id": "countdown_suffix", "label": "Countdown suffix", "default": "for same-day shipping"},
+
+    {"type": "text", "id": "gallery_heading", "label": "Gallery heading", "default": "Real Customers, Real Results"},
+    {"type": "url", "id": "gallery_link_url", "label": "Gallery link"},
+    {"type": "text", "id": "gallery_link_label", "label": "Gallery link label", "default": "View all reviews"},
+
+    {"type": "text", "id": "notification_name", "label": "Notification name", "default": "Carlos R. from Madrid"},
+    {"type": "text", "id": "notification_action", "label": "Notification action", "default": "just purchased Athlete Bundle"},
+    {"type": "text", "id": "notification_time", "label": "Notification time", "default": "2 minutes ago"}
+  ],
+  "blocks": [
+    {
+      "type": "video_card",
+      "name": "Video card",
+      "settings": [
+        {"type": "text", "id": "video_id", "label": "YouTube video ID", "default": "3U5Bn-R5MLw"},
+        {"type": "text", "id": "alt", "label": "Image alt", "default": "Customer review video"}
+      ]
+    },
+    {
+      "type": "trust_card",
+      "name": "Trust card",
+      "settings": [
+        {"type": "textarea", "id": "icon_svg", "label": "SVG icon", "default": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"></path></svg>"},
+        {"type": "text", "id": "title", "label": "Title", "default": "90-Day Money Back"},
+        {"type": "textarea", "id": "description", "label": "Description", "default": "Try risk-free for 3 months. Not satisfied? Full refund, no questions asked."},
+        {"type": "checkbox", "id": "is_shipping", "label": "Use shipping data attributes", "default": false}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP Reviews",
+      "blocks": [
+        {"type": "video_card", "settings": {"video_id": "3U5Bn-R5MLw", "alt": "Customer review video 1"}},
+        {"type": "video_card", "settings": {"video_id": "zX3fB4iTZfU", "alt": "Customer review video 2"}},
+        {"type": "video_card", "settings": {"video_id": "ab-TSJ9YS9M", "alt": "Customer review video 3"}},
+        {"type": "video_card", "settings": {"video_id": "jroNtnSdogs", "alt": "Customer review video 4"}},
+        {"type": "video_card", "settings": {"video_id": "N365_szEpaU", "alt": "Customer review video 5"}},
+        {"type": "video_card", "settings": {"video_id": "JQchw5EAoWE", "alt": "Customer review video 6"}},
+        {"type": "trust_card", "settings": {"title": "90-Day Money Back", "description": "Try risk-free for 3 months. Not satisfied? Full refund, no questions asked."}},
+        {"type": "trust_card", "settings": {"icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M12 6v6l4 2\"></path></svg>", "title": "Lifetime Handle Warranty", "description": "Premium handles guaranteed forever. 90-day warranty on cables and cords."}},
+        {"type": "trust_card", "settings": {"icon_svg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z\"></path><circle cx=\"12\" cy=\"10\" r=\"3\"></circle></svg>", "title": "Free Shipping Over EUR 50", "description": "Fast delivery to EU, UK, US, Canada and Australia. Worldwide available.", "is_shipping": true}}
+      ]
+    }
+  ],
+  "max_blocks": 20
 }
 {% endschema %}

@@ -1,31 +1,38 @@
 <section class="pdp-multicolumn section section--full-width" data-pdp-multicolumn>
   <div class="pdp-multicolumn__inner">
     <header class="pdp-multicolumn__header">
-      <h2>Por que una cuerda de cuentas?</h2>
-      <p>
-        Cada tipo de cuerda tiene sus propios beneficios y se adapta a un estilo diferente de saltar. La estructura
-        de una cuerda con cuentas consiste en un cordon de poliester de 3.0MM envuelto en cuentas duraderas y coloridas.
-      </p>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.description }}</p>
     </header>
 
     <div class="pdp-multicolumn__list" role="list">
-      <article class="pdp-multicolumn__item" role="listitem">
-        <div class="pdp-multicolumn__media">
-          <img src="https://www.elevaterope.com/cdn/shop/files/5_565de955-400d-40e3-9966-efdee3ec3025.png?v=1743957331&width=1420" alt="Retroalimentacion visual de cuerda con cuentas" loading="lazy" width="1920" height="1080">
-        </div>
-        <div class="pdp-multicolumn__info">
-          <h6>Las cuentas atrapan aire, lo que resulta en mas retroalimentacion y ayuda a sentir mejor la ubicacion de la cuerda.</h6>
-        </div>
-      </article>
-
-      <article class="pdp-multicolumn__item" role="listitem">
-        <div class="pdp-multicolumn__media">
-          <img src="https://www.elevaterope.com/cdn/shop/files/4_b45ab812-0834-47b0-994c-7c366b30e1c3.png?v=1743957332&width=1420" alt="Control con cuerda de cuentas" loading="lazy" width="1920" height="1080">
-        </div>
-        <div class="pdp-multicolumn__info">
-          <h6>Una cuerda con cuentas ha demostrado ser perfecta para principiantes, estilo libre y cualquier habilidad que requiera mas retroalimentacion para un mejor control.</h6>
-        </div>
-      </article>
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          <article class="pdp-multicolumn__item" role="listitem" {{ block.shopify_attributes }}>
+            <div class="pdp-multicolumn__media">
+              {% if block.settings.image != blank %}
+                {{
+                  block.settings.image
+                  | image_url: width: 1420
+                  | image_tag:
+                    loading: 'lazy',
+                    width: block.settings.image.width,
+                    height: block.settings.image.height,
+                    alt: block.settings.image_alt
+                }}
+              {% elsif block.settings.image_url != blank %}
+                <img src="{{ block.settings.image_url }}" alt="{{ block.settings.image_alt | escape }}" loading="lazy" width="1920" height="1080">
+              {% endif %}
+            </div>
+            <div class="pdp-multicolumn__info">
+              <h6>{{ block.settings.text }}</h6>
+            </div>
+          </article>
+        {% endfor %}
+      {% else %}
+        <article class="pdp-multicolumn__item" role="listitem"><div class="pdp-multicolumn__media"><img src="https://www.elevaterope.com/cdn/shop/files/5_565de955-400d-40e3-9966-efdee3ec3025.png?v=1743957331&width=1420" alt="Retroalimentacion visual de cuerda con cuentas" loading="lazy" width="1920" height="1080"></div><div class="pdp-multicolumn__info"><h6>Las cuentas atrapan aire, lo que resulta en mas retroalimentacion y ayuda a sentir mejor la ubicacion de la cuerda.</h6></div></article>
+        <article class="pdp-multicolumn__item" role="listitem"><div class="pdp-multicolumn__media"><img src="https://www.elevaterope.com/cdn/shop/files/4_b45ab812-0834-47b0-994c-7c366b30e1c3.png?v=1743957332&width=1420" alt="Control con cuerda de cuentas" loading="lazy" width="1920" height="1080"></div><div class="pdp-multicolumn__info"><h6>Una cuerda con cuentas ha demostrado ser perfecta para principiantes, estilo libre y cualquier habilidad que requiera mas retroalimentacion para un mejor control.</h6></div></article>
+      {% endif %}
     </div>
 
     <div class="pdp-multicolumn__dots" data-multi-dots aria-label="Paginacion del carrusel"></div>
@@ -38,7 +45,48 @@
   "tag": "section",
   "class": "section section--full-width",
   "disabled_on": {"groups": ["header", "footer"]},
-  "settings": [],
-  "presets": [{"name": "PDP Multicolumn"}]
+  "settings": [
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Por que una cuerda de cuentas?"},
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Cada tipo de cuerda tiene sus propios beneficios y se adapta a un estilo diferente de saltar. La estructura de una cuerda con cuentas consiste en un cordon de poliester de 3.0MM envuelto en cuentas duraderas y coloridas."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {"type": "image_picker", "id": "image", "label": "Image"},
+        {"type": "text", "id": "image_url", "label": "Image URL fallback", "default": ""},
+        {"type": "text", "id": "image_alt", "label": "Image alt", "default": "Imagen"},
+        {"type": "textarea", "id": "text", "label": "Text", "default": "Texto del item"}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP Multicolumn",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "image_alt": "Retroalimentacion visual de cuerda con cuentas",
+            "text": "Las cuentas atrapan aire, lo que resulta en mas retroalimentacion y ayuda a sentir mejor la ubicacion de la cuerda."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "image_alt": "Control con cuerda de cuentas",
+            "text": "Una cuerda con cuentas ha demostrado ser perfecta para principiantes, estilo libre y cualquier habilidad que requiera mas retroalimentacion para un mejor control."
+          }
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8
 }
 {% endschema %}

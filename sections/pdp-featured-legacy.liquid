@@ -1,32 +1,53 @@
+{% liquid
+  assign features = section.settings.features_list | newline_to_br | split: '<br />'
+  assign benefits = section.settings.benefits_list | newline_to_br | split: '<br />'
+%}
+
 <section class="pdp-featured-legacy section section--full-width" data-pdp-featured-legacy>
   <div class="pdp-featured-legacy__inner">
     <div class="pdp-featured-legacy__grid">
       <div class="pdp-featured-legacy__media">
-        <a href="/es/products/storm-beaded-jump-rope" aria-label="Storm - Cuerda para saltar con cuentas">
-          <img src="https://www.elevaterope.com/cdn/shop/files/HEROExample_00de0200-0308-4d7f-84fb-9f7ab9c95a08.jpg?v=1770505158&width=1200" alt="Storm - Cuerda para saltar con cuentas" loading="lazy" width="973" height="973">
+        <a href="{{ section.settings.product_url | default: '/es/products/storm-beaded-jump-rope' }}" aria-label="{{ section.settings.product_title | escape }}">
+          {% if section.settings.product_image != blank %}
+            {{
+              section.settings.product_image
+              | image_url: width: 1200
+              | image_tag:
+                loading: 'lazy',
+                width: section.settings.product_image.width,
+                height: section.settings.product_image.height,
+                alt: section.settings.product_title
+            }}
+          {% elsif section.settings.product_image_url != blank %}
+            <img src="{{ section.settings.product_image_url }}" alt="{{ section.settings.product_title | escape }}" loading="lazy" width="973" height="973">
+          {% endif %}
         </a>
       </div>
 
       <div class="pdp-featured-legacy__info">
-        <h2 class="pdp-featured-legacy__title">Storm - Cuerda para saltar con cuentas</h2>
+        <h2 class="pdp-featured-legacy__title">{{ section.settings.product_title }}</h2>
 
-        <h5><strong>Features:</strong></h5>
+        <h5><strong>{{ section.settings.features_heading }}</strong></h5>
         <ul>
-          <li>- 3.5MM High Quality Polycord</li>
-          <li>- Durable shatterproof beads</li>
-          <li>- Rock-hard, Shatter-free Handles</li>
-          <li>- Perfect for beginners, freestyle and any skills that require more feedback for better control</li>
+          {% for item in features %}
+            {% assign trimmed = item | strip %}
+            {% if trimmed != blank %}
+              <li>{{ trimmed }}</li>
+            {% endif %}
+          {% endfor %}
         </ul>
 
-        <h5><strong>Benefits:</strong></h5>
+        <h5><strong>{{ section.settings.benefits_heading }}</strong></h5>
         <ul>
-          <li>- Eliminates tangling, makes you trip less and allows for smooth transitions and the best jumping experience every time.</li>
-          <li>- Highest quality PVC with nylon core allows for a longer lifespan and gives you the freedom to jump anywhere.</li>
-          <li>- Rock-hard, shatter-free handles give you the space to practice freestyle tricks on concrete without breaking.</li>
-          <li>- 5MM Cable gives you the feedback you need to feel your rope and the speed you want for an effective full-body workout.</li>
+          {% for item in benefits %}
+            {% assign trimmed = item | strip %}
+            {% if trimmed != blank %}
+              <li>{{ trimmed }}</li>
+            {% endif %}
+          {% endfor %}
         </ul>
 
-        <a href="/es/products/storm-beaded-jump-rope" class="pdp-featured-legacy__link">Ver detalles completos</a>
+        <a href="{{ section.settings.product_url | default: '/es/products/storm-beaded-jump-rope' }}" class="pdp-featured-legacy__link">{{ section.settings.cta_label }}</a>
       </div>
     </div>
   </div>
@@ -38,7 +59,27 @@
   "tag": "section",
   "class": "section section--full-width",
   "disabled_on": {"groups": ["header", "footer"]},
-  "settings": [],
+  "settings": [
+    {"type": "url", "id": "product_url", "label": "Product URL"},
+    {"type": "image_picker", "id": "product_image", "label": "Product image"},
+    {"type": "text", "id": "product_image_url", "label": "Product image URL fallback", "default": "https://www.elevaterope.com/cdn/shop/files/HEROExample_00de0200-0308-4d7f-84fb-9f7ab9c95a08.jpg?v=1770505158&width=1200"},
+    {"type": "text", "id": "product_title", "label": "Product title", "default": "Storm - Cuerda para saltar con cuentas"},
+    {"type": "text", "id": "features_heading", "label": "Features heading", "default": "Features:"},
+    {
+      "type": "textarea",
+      "id": "features_list",
+      "label": "Features list (one item per line)",
+      "default": "- 3.5MM High Quality Polycord\n- Durable shatterproof beads\n- Rock-hard, Shatter-free Handles\n- Perfect for beginners, freestyle and any skills that require more feedback for better control"
+    },
+    {"type": "text", "id": "benefits_heading", "label": "Benefits heading", "default": "Benefits:"},
+    {
+      "type": "textarea",
+      "id": "benefits_list",
+      "label": "Benefits list (one item per line)",
+      "default": "- Eliminates tangling, makes you trip less and allows for smooth transitions and the best jumping experience every time.\n- Highest quality PVC with nylon core allows for a longer lifespan and gives you the freedom to jump anywhere.\n- Rock-hard, shatter-free handles give you the space to practice freestyle tricks on concrete without breaking.\n- 5MM Cable gives you the feedback you need to feel your rope and the speed you want for an effective full-body workout."
+    },
+    {"type": "text", "id": "cta_label", "label": "CTA label", "default": "Ver detalles completos"}
+  ],
   "presets": [{"name": "PDP Featured Legacy"}]
 }
 {% endschema %}
