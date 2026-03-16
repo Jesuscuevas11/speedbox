@@ -267,6 +267,7 @@
         "limit_details_width": false,
         "gap": 48,
         "enable_sticky_add_to_cart": true,
+        "recommended_products": [],
         "color_scheme": "",
         "padding-block-start": 0,
         "padding-block-end": 0
@@ -413,10 +414,27 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "recommended_products_manual_KtMdLU": {
+      "type": "recommended-products-manual",
+      "name": "Productos recomendados",
+      "settings": {
+        "heading": "Productos recomendados",
+        "products": [
+          "cuerda-para-saltar-con-cuentas-1",
+          "cuerda-para-saltar-con-cuentas-copy",
+          "cuerda-para-saltar-con-cuentas"
+        ],
+        "products_limit": 8,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
     }
   },
   "order": [
     "main",
-    "product_recommendations_qggXJq"
+    "product_recommendations_qggXJq",
+    "recommended_products_manual_KtMdLU"
   ]
 }
