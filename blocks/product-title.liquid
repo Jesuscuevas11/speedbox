@@ -15,6 +15,35 @@
   </a>
 {% endif %}
 
+{% stylesheet %}
+  [ref='productTitleLink'] .text-block > * {
+    box-sizing: border-box;
+    color: rgb(10, 10, 10);
+    display: block;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 39.6px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 10px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 10px;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    unicode-bidi: isolate;
+    word-break: break-word;
+    -webkit-font-smoothing: antialiased;
+  }
+{% endstylesheet %}
+
 {% schema %}
 {
   "name": "t:names.product_title",
