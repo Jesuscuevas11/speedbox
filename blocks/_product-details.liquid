@@ -39,6 +39,10 @@
       padding-inline: 0;
     }
 
+    .product-details .group-block-content > .product-category + .group-block {
+      margin-top: -18px;
+    }
+
     .product-category {
       box-sizing: border-box;
       color: rgb(85, 16, 221);
@@ -76,6 +80,14 @@
   }
 
   @media screen and (min-width: 750px) {
+    .product-details > .group-block > .group-block-content {
+      gap: 6px;
+    }
+
+    .product-details > .group-block > .group-block-content > .group-block ~ * {
+      margin-top: 22px;
+    }
+
     .product-category {
       box-sizing: border-box;
       color: rgb(85, 16, 221);
