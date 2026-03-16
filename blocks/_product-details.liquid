@@ -23,6 +23,9 @@
         {{- closest.product.title }}
       </a>
     </div>
+    {% if block_settings.product_category != blank %}
+      <div class="product-category">{{ block_settings.product_category | escape }}</div>
+    {% endif %}
     {% content_for 'blocks' %}
   {% endcapture %}
 
@@ -39,6 +42,37 @@
 
   .view-product-title {
     display: none;
+  }
+
+  @media screen and (min-width: 750px) {
+    .product-category {
+      box-sizing: border-box;
+      color: rgb(85, 16, 221);
+      display: block;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 700;
+      height: 16.5px;
+      letter-spacing: 0.8px;
+      line-height: 16.5px;
+      list-style-image: none;
+      list-style-position: outside;
+      list-style-type: none;
+      margin-top: 0;
+      margin-right: 0;
+      margin-bottom: 6px;
+      margin-left: 0;
+      padding-top: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+      padding-left: 0;
+      text-transform: uppercase;
+      unicode-bidi: isolate;
+      width: 635.4px;
+      max-width: 100%;
+      -webkit-font-smoothing: antialiased;
+    }
   }
 
   /* Container styles */
@@ -248,6 +282,12 @@
       "step": 1,
       "unit": "px",
       "default": 12
+    },
+    {
+      "type": "text",
+      "id": "product_category",
+      "label": "Product category text",
+      "default": "Pro-Grade Beaded Rope"
     },
     {
       "type": "checkbox",
