@@ -173,7 +173,8 @@
   settings: section.settings,
   media_gallery: media_gallery,
   product_details: product_details,
-  additional_blocks: additional_blocks
+  additional_blocks: additional_blocks,
+  recommended_products: section.settings.recommended_products
 %}
 
 {% stylesheet %}
@@ -436,6 +437,11 @@
       "id": "enable_sticky_add_to_cart",
       "label": "t:settings.enable_sticky_add_to_cart",
       "default": true
+    },
+    {
+      "type": "product_list",
+      "id": "recommended_products",
+      "label": "Productos recomendados"
     },
     {
       "type": "color_scheme",

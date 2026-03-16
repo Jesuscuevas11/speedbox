@@ -1,0 +1,327 @@
+{% liquid
+  assign section_products = section.settings.products
+%}
+
+<section class="rp-manual section section--full-width spacing-style color-{{ section.settings.color_scheme }}" style="{% render 'spacing-style', settings: section.settings %}">
+  <div class="rp-manual__inner">
+    {% if section.settings.heading != blank %}
+      <h2 class="rp-manual__title">{{ section.settings.heading | escape }}</h2>
+    {% endif %}
+
+    {% if section_products != blank and section_products.count > 0 %}
+      <div class="rp-manual__grid" role="list">
+        {% for rec_product in section_products limit: section.settings.products_limit %}
+          {% liquid
+            assign rating_object = rec_product.metafields.reviews.rating.value
+            assign rating_value = blank
+            if rating_object != blank
+              assign rating_value = rating_object.rating | default: rating_object
+            endif
+            assign rating_count = rec_product.metafields.reviews.rating_count.value | default: rec_product.metafields.reviews.rating_count
+            if rating_value == blank
+              assign rating_value = 5.0
+            endif
+            if rating_count == blank
+              assign rating_count = 4
+            endif
+          %}
+          <article class="rp-manual__card" role="listitem">
+            <a class="rp-manual__image-link" href="{{ rec_product.url }}">
+              {% if rec_product.featured_image %}
+                {{
+                  rec_product.featured_image
+                  | image_url: width: 900
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '330,437,660,874',
+                    sizes: '(max-width: 749px) 330px, 437px',
+                    class: 'rp-manual__image',
+                    alt: rec_product.featured_image.alt | default: rec_product.title
+                }}
+              {% endif %}
+            </a>
+
+            <div class="rp-manual__content">
+              <h3 class="rp-manual__product-title">
+                <a href="{{ rec_product.url }}">{{ rec_product.title }}</a>
+              </h3>
+
+              <div class="rp-manual__price">
+                {% if rec_product.compare_at_price > rec_product.price %}
+                  <span class="rp-manual__price-current">{{ rec_product.price | money }}</span>
+                  <span class="rp-manual__price-compare">{{ rec_product.compare_at_price | money }}</span>
+                {% else %}
+                  <span class="rp-manual__price-current">{{ rec_product.price | money }}</span>
+                {% endif %}
+              </div>
+
+              <div class="rp-manual__rating" aria-label="{{ rating_value }} de 5 estrellas">
+                <span class="rp-manual__rating-stars" style="--rating: {{ rating_value }};" aria-hidden="true"></span>
+                <span class="rp-manual__rating-text">{{ rating_value }}/5</span>
+                <span class="rp-manual__rating-count">({{ rating_count }})</span>
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% elsif request.design_mode %}
+      <div class="rp-manual__empty">
+        Selecciona productos en el campo "Lista de productos" para mostrar esta seccion.
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .rp-manual {
+    --rp-gap: 16px;
+    --rp-card-width: 330px;
+    --rp-image-height: 330px;
+  }
+
+  .rp-manual__title {
+    margin: 0 0 50px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 40px;
+    line-height: 1.1;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .rp-manual__inner {
+    width: 100%;
+    max-width: 1331px;
+    margin: 0 auto;
+  }
+
+  .rp-manual__grid {
+    display: grid;
+    gap: var(--rp-gap);
+    grid-template-columns: minmax(0, var(--rp-card-width));
+    justify-content: center;
+  }
+
+  .rp-manual__card {
+    width: var(--rp-card-width);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border: 0;
+    overflow: hidden;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .rp-manual__image-link {
+    display: block;
+    height: var(--rp-image-height);
+    overflow: hidden;
+    background: rgb(var(--color-background-secondary-rgb));
+  }
+
+  .rp-manual__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .rp-manual__content {
+    min-height: 120px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .rp-manual__product-title {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .rp-manual__product-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .rp-manual__price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .rp-manual__price-current {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .rp-manual__price-compare {
+    font-size: 13px;
+    opacity: 0.6;
+    text-decoration: line-through;
+  }
+
+  .rp-manual__rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  .rp-manual__rating-stars {
+    position: relative;
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+
+  .rp-manual__rating-stars::before {
+    content: '★★★★★';
+    color: rgba(0, 0, 0, 0.18);
+  }
+
+  .rp-manual__rating-stars::after {
+    content: '★★★★★';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc((var(--rating) / 5) * 100%);
+    overflow: hidden;
+    white-space: nowrap;
+    color: #f2b01e;
+  }
+
+  .rp-manual__rating-text,
+  .rp-manual__rating-count {
+    opacity: 0.75;
+    font-size: 12px;
+  }
+
+  .rp-manual__empty {
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px dashed rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .rp-manual {
+      --rp-card-width: 437px;
+      --rp-card-height: 605.4px;
+      --rp-card-content-height: 168.4px;
+      --rp-image-height: 437px;
+      --rp-gap: 10px;
+    }
+
+    .rp-manual__grid {
+      grid-template-columns: repeat(2, minmax(0, var(--rp-card-width)));
+    }
+
+    .rp-manual__content {
+      min-height: 0;
+      height: var(--rp-card-content-height);
+      padding: 12px 14px;
+      gap: 10px;
+    }
+
+    .rp-manual__product-title {
+      font-size: 16px;
+      line-height: 1.3;
+    }
+
+    .rp-manual__title {
+      font-size: 36px;
+    }
+
+    .rp-manual__price-current {
+      font-size: 16px;
+    }
+
+    .rp-manual__price-compare {
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (min-width: 1332px) {
+    .rp-manual__grid {
+      grid-template-columns: repeat(3, minmax(0, var(--rp-card-width)));
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Productos recomendados",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titulo",
+      "default": "Productos recomendados"
+    },
+    {
+      "type": "product_list",
+      "id": "products",
+      "label": "Lista de productos"
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "label": "Cantidad maxima",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Esquema de color",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Espacio superior",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Espacio inferior",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Productos recomendados"
+    }
+  ]
+}
+{% endschema %}
