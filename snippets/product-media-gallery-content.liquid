@@ -149,7 +149,9 @@
   if block_settings.constrain_to_viewport
     assign product_media_container_class = product_media_container_class | append: ' constrain-height'
   endif
-  if block_settings.aspect_ratio != 'adapt'
+  if media_presentation == 'carousel'
+    assign product_media_container_class = product_media_container_class | append: ' media-fit-contain'
+  elsif block_settings.aspect_ratio != 'adapt'
     assign product_media_container_class = product_media_container_class | append: ' media-fit-cover'
   elsif block_settings.constrain_to_viewport
     assign product_media_container_class = product_media_container_class | append: ' media-fit-' | append: block_settings.media_fit
@@ -424,7 +426,7 @@
             style: block_settings.slideshow_mobile_controls_style,
             item_count: sorted_media.size,
             thumbnails: sorted_media,
-            controls_on_media: mobile_controls_on_media,
+            controls_on_media: false,
             pagination_position: 'center',
             aspect_ratio: block_settings.aspect_ratio,
             thumbnail_radius: block_settings.thumbnail_radius
