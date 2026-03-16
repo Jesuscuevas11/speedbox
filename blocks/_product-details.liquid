@@ -145,10 +145,17 @@
     </div>
     <div class="product__payment" data-product-payment>
       <ul class="list list-payment" role="list">
-        {%- for type in shop.enabled_payment_types -%}
-          <li class="list-payment__item">
-            {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-          </li>
+        {%- assign payment_types = shop.enabled_payment_types -%}
+        {%- if payment_types == blank or payment_types.size == 0 -%}
+          {%- assign payment_types = 'american_express,apple_pay,bancontact,google_pay,ideal,klarna,maestro,master,mobilepay,paypal,shopify_pay,unionpay,usdc,visa' | split: ',' -%}
+        {%- endif -%}
+        {%- for type in payment_types -%}
+          {%- capture payment_icon -%}{{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}{%- endcapture -%}
+          {%- if payment_icon != blank -%}
+            <li class="list-payment__item">
+              {{ payment_icon }}
+            </li>
+          {%- endif -%}
         {%- endfor -%}
       </ul>
     </div>
