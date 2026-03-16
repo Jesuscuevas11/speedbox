@@ -25,7 +25,7 @@
               {% endif %}
             </div>
             <div class="pdp-multicolumn__info">
-              <h6>{{ block.settings.text }}</h6>
+              <h6>{{ block.settings.item_text }}</h6>
             </div>
           </article>
         {% endfor %}
@@ -60,9 +60,9 @@
       "name": "Item",
       "settings": [
         {"type": "image_picker", "id": "image", "label": "Image"},
-        {"type": "text", "id": "image_url", "label": "Image URL fallback", "default": ""},
+        {"type": "text", "id": "image_url", "label": "Image URL fallback"},
         {"type": "text", "id": "image_alt", "label": "Image alt", "default": "Imagen"},
-        {"type": "textarea", "id": "text", "label": "Text", "default": "Texto del item"}
+        {"type": "textarea", "id": "item_text", "label": "Text", "default": "Texto del item"}
       ]
     }
   ],
@@ -74,14 +74,14 @@
           "type": "item",
           "settings": {
             "image_alt": "Retroalimentacion visual de cuerda con cuentas",
-            "text": "Las cuentas atrapan aire, lo que resulta en mas retroalimentacion y ayuda a sentir mejor la ubicacion de la cuerda."
+            "item_text": "Las cuentas atrapan aire, lo que resulta en mas retroalimentacion y ayuda a sentir mejor la ubicacion de la cuerda."
           }
         },
         {
           "type": "item",
           "settings": {
             "image_alt": "Control con cuerda de cuentas",
-            "text": "Una cuerda con cuentas ha demostrado ser perfecta para principiantes, estilo libre y cualquier habilidad que requiera mas retroalimentacion para un mejor control."
+            "item_text": "Una cuerda con cuentas ha demostrado ser perfecta para principiantes, estilo libre y cualquier habilidad que requiera mas retroalimentacion para un mejor control."
           }
         }
       ]

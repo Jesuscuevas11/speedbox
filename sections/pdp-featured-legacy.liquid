@@ -1,6 +1,7 @@
 {% liquid
   assign features = section.settings.features_list | newline_to_br | split: '<br />'
   assign benefits = section.settings.benefits_list | newline_to_br | split: '<br />'
+  assign featured_legacy_fallback_image = 'https://www.elevaterope.com/cdn/shop/files/HEROExample_00de0200-0308-4d7f-84fb-9f7ab9c95a08.jpg?v=1770505158&width=1200'
 %}
 
 <section class="pdp-featured-legacy section section--full-width" data-pdp-featured-legacy>
@@ -16,10 +17,12 @@
                 loading: 'lazy',
                 width: section.settings.product_image.width,
                 height: section.settings.product_image.height,
-                alt: section.settings.product_title
+                alt: section.settings.product_image_alt | default: section.settings.product_title
             }}
           {% elsif section.settings.product_image_url != blank %}
-            <img src="{{ section.settings.product_image_url }}" alt="{{ section.settings.product_title | escape }}" loading="lazy" width="973" height="973">
+            <img src="{{ section.settings.product_image_url }}" alt="{{ section.settings.product_image_alt | default: section.settings.product_title | escape }}" loading="lazy" width="973" height="973">
+          {% else %}
+            <img src="{{ featured_legacy_fallback_image }}" alt="{{ section.settings.product_image_alt | default: section.settings.product_title | escape }}" loading="lazy" width="973" height="973">
           {% endif %}
         </a>
       </div>
@@ -63,6 +66,7 @@
     {"type": "url", "id": "product_url", "label": "Product URL"},
     {"type": "image_picker", "id": "product_image", "label": "Product image"},
     {"type": "text", "id": "product_image_url", "label": "Product image URL fallback", "default": "https://www.elevaterope.com/cdn/shop/files/HEROExample_00de0200-0308-4d7f-84fb-9f7ab9c95a08.jpg?v=1770505158&width=1200"},
+    {"type": "text", "id": "product_image_alt", "label": "Product image alt", "default": "Storm - Cuerda para saltar con cuentas"},
     {"type": "text", "id": "product_title", "label": "Product title", "default": "Storm - Cuerda para saltar con cuentas"},
     {"type": "text", "id": "features_heading", "label": "Features heading", "default": "Features:"},
     {
