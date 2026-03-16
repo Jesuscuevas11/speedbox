@@ -26,6 +26,132 @@
     {% if block_settings.product_category != blank %}
       <div class="product-category">{{ block_settings.product_category | escape }}</div>
     {% endif %}
+    <p class="product-tagline" data-product-tagline>
+      Segmented beads create audible feedback for perfect timing. The easiest way to learn.
+    </p>
+    <div class="reviews-bar" data-reviews-bar>
+      <div class="stars" aria-hidden="true">
+        <svg class="star" viewBox="0 0 20 20"><path fill="currentColor" d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
+        <svg class="star" viewBox="0 0 20 20"><path fill="currentColor" d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
+        <svg class="star" viewBox="0 0 20 20"><path fill="currentColor" d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
+        <svg class="star" viewBox="0 0 20 20"><path fill="currentColor" d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
+        <svg class="star" viewBox="0 0 20 20"><path fill="currentColor" d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
+      </div>
+      <span class="review-count"><strong>4.9</strong> from 1,200+ reviews</span>
+    </div>
+    <div class="stock-indicator low-stock" data-stock-indicator>
+      <span class="stock-text low-stock">{{ block_settings.stock_indicator_text | escape }}</span>
+    </div>
+    <div class="shipping-note" id="shippingMessage" data-shipping-note>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M5 13l4 4L19 7"></path>
+      </svg>
+      <span>Worldwide shipping available</span>
+    </div>
+    <div class="trust-row" data-trust-row>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2"></rect><path d="M16 8h4l3 3v5h-7V8z"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+        <span class="trust-text">Fast Shipping</span>
+      </div>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        <span class="trust-text">24/7 Support</span>
+      </div>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"></path><path d="M3 12h3m15 0h-3"></path></svg>
+        <span class="trust-text">90-Day Returns</span>
+      </div>
+    </div>
+    <div class="value-section" data-value-section>
+      <div class="value-header">
+        <div class="value-title">Complete Training System</div>
+        <div class="value-total">
+          <span class="strike" data-total-value-header>€213,95</span>
+          <span class="current" data-package-price>€29,95</span>
+        </div>
+      </div>
+      <div class="value-items">
+        <div class="value-item">
+          <div class="value-item-icon">📱</div>
+          <div class="value-item-content">
+            <div class="value-item-name">Elevate App</div>
+            <div class="value-item-desc">100+ tutorials (€99,00)</div>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-item-icon">🧠</div>
+          <div class="value-item-content">
+            <div class="value-item-name">Elevate Code</div>
+            <div class="value-item-desc">Mindset guide (€27,00)</div>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-item-icon">📖</div>
+          <div class="value-item-content">
+            <div class="value-item-name">Nutrition Guide</div>
+            <div class="value-item-desc">30+ meals (€39,00)</div>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-item-icon">✅</div>
+          <div class="value-item-content">
+            <div class="value-item-name">Tracker</div>
+            <div class="value-item-desc">1 year access (€19,00)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="features-section" data-features-section>
+      <h2 class="features-title">Why This Rope Changes Everything</h2>
+
+      <div class="feature-item">
+        <div class="feature-check">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"></path></svg>
+        </div>
+        <div class="feature-content">
+          <div class="feature-benefit">Perfect rhythm control</div>
+          <div class="feature-detail">Segmented beads create optimal weight and tactile feedback</div>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-check">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"></path></svg>
+        </div>
+        <div class="feature-content">
+          <div class="feature-benefit">Complete training system</div>
+          <div class="feature-detail">100+ tutorials, meal plans &amp; accountability tracking</div>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-check">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"></path></svg>
+        </div>
+        <div class="feature-content">
+          <div class="feature-benefit">Built for intense training</div>
+          <div class="feature-detail">Durable beads with shatter-resistant handles</div>
+        </div>
+      </div>
+    </div>
+    <div class="guarantee-section" data-guarantee-section>
+      <div class="guarantee-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      </div>
+      <div class="guarantee-content">
+        <div class="guarantee-title">Lifetime Handle + 90-Day Protection</div>
+        <div class="guarantee-text">Handles break? Free replacement. Not satisfied? Full refund.</div>
+      </div>
+    </div>
+    <div class="product__payment" data-product-payment>
+      <ul class="list list-payment" role="list">
+        {%- for type in shop.enabled_payment_types -%}
+          <li class="list-payment__item">
+            {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
     {% content_for 'blocks' %}
   {% endcapture %}
 
@@ -79,6 +205,600 @@
     display: none;
   }
 
+  .product-tagline {
+    box-sizing: border-box;
+    color: rgb(115, 115, 115);
+    display: block;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 300;
+    height: 21px;
+    line-height: 21px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    unicode-bidi: isolate;
+    width: 635.4px;
+    max-width: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-tagline {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .reviews-bar {
+    align-items: center;
+    border-top-color: rgb(245, 245, 245);
+    border-top-style: solid;
+    border-top-width: 0.8px;
+    box-sizing: border-box;
+    color: rgb(23, 23, 23);
+    column-gap: 8px;
+    display: flex;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    height: 49.8px;
+    line-height: 21px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 12px;
+    margin-left: 0;
+    padding-top: 14px;
+    padding-right: 0;
+    padding-bottom: 14px;
+    padding-left: 0;
+    row-gap: 8px;
+    unicode-bidi: isolate;
+    width: 635.4px;
+    max-width: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .reviews-bar .stars {
+    display: inline-flex;
+    gap: 2px;
+    color: rgb(23, 23, 23);
+    flex-shrink: 0;
+  }
+
+  .reviews-bar .star {
+    width: 14px;
+    height: 14px;
+  }
+
+  .reviews-bar .review-count {
+    color: rgb(79, 79, 79);
+  }
+
+  .reviews-bar .review-count strong {
+    color: rgb(23, 23, 23);
+    font-weight: 700;
+  }
+
+  .stock-indicator.low-stock {
+    align-items: center;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(254, 243, 199);
+    background-image: none;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-size: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-sizing: border-box;
+    color: #b45309;
+    column-gap: 8px;
+    display: flex;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    height: 45px;
+    line-height: 21px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 16px;
+    margin-left: 0;
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    row-gap: 8px;
+    unicode-bidi: isolate;
+    width: 635.4px;
+    max-width: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .stock-indicator .stock-count {
+    font-weight: 700;
+  }
+
+  .product-details .quantity-selector-wrapper {
+    display: none;
+  }
+
+  .shipping-note {
+    box-sizing: border-box;
+    color: rgb(115, 115, 115);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    height: 19.5px;
+    line-height: 19.5px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    width: 167.425px;
+    max-width: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .shipping-note svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  .trust-row {
+    align-items: center;
+    border-top-color: rgb(229, 229, 229);
+    border-top-style: solid;
+    border-top-width: 0.8px;
+    border-bottom-color: rgb(245, 245, 245);
+    border-bottom-style: solid;
+    border-bottom-width: 0.8px;
+    box-sizing: border-box;
+    color: rgb(23, 23, 23);
+    column-gap: 24px;
+    display: flex;
+    flex-direction: row;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    height: 63.6px;
+    justify-content: space-between;
+    line-height: 21px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 16px;
+    margin-left: 0;
+    padding-top: 24px;
+    padding-right: 0;
+    padding-bottom: 12px;
+    padding-left: 0;
+    row-gap: 24px;
+    unicode-bidi: isolate;
+    width: 635.4px;
+    max-width: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .trust-row .trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  .trust-row .trust-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    color: #5510dd;
+  }
+
+  .value-section {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(245, 240, 255);
+    background-image: none;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-size: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-sizing: border-box;
+    color: rgb(23, 23, 23);
+    display: block;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    height: 166.8px;
+    line-height: 21px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 16px;
+    margin-left: 0;
+    padding-top: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    unicode-bidi: isolate;
+    width: 635.4px;
+    max-width: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .value-section .value-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .value-section .value-title {
+    font-weight: 700;
+  }
+
+  .value-section .value-total {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .value-section .value-total .strike {
+    text-decoration: line-through;
+    color: rgb(145, 145, 145);
+  }
+
+  .value-section .value-total .current {
+    font-weight: 700;
+    color: rgb(23, 23, 23);
+  }
+
+  .value-section .value-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 12px;
+    row-gap: 6px;
+  }
+
+  .value-section .value-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    padding: 8px;
+  }
+
+  .value-section .value-item-icon {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .value-section .value-item-name {
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .value-section .value-item-desc {
+    color: rgb(115, 115, 115);
+    line-height: 1.2;
+  }
+
+  .features-section {
+    box-sizing: border-box;
+    color: rgb(23, 23, 23);
+    display: block;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    height: auto;
+    line-height: 21px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 16px;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    unicode-bidi: isolate;
+    width: 635.4px;
+    max-width: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .features-section .features-title {
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+    margin: 0 0 12px;
+  }
+
+  .features-section .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .features-section .feature-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .features-section .feature-check {
+    width: 18px;
+    height: 18px;
+    color: #5510dd;
+    background-color: #f5f0ff;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .features-section .feature-check svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .features-section .feature-benefit {
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .features-section .feature-detail {
+    color: rgb(115, 115, 115);
+    line-height: 1.2;
+  }
+
+  .guarantee-section {
+    align-items: center;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(135deg, rgb(5, 150, 105) 0%, rgb(16, 185, 129) 100%);
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-size: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-sizing: border-box;
+    color: rgb(23, 23, 23);
+    column-gap: 12px;
+    display: flex;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    height: 64px;
+    line-height: 21px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 16px;
+    margin-left: 0;
+    padding-top: 14px;
+    padding-right: 16px;
+    padding-bottom: 14px;
+    padding-left: 16px;
+    row-gap: 12px;
+    unicode-bidi: isolate;
+    width: 635.4px;
+    max-width: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .guarantee-section .guarantee-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    color: rgb(255, 255, 255);
+  }
+
+  .guarantee-section .guarantee-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .guarantee-section .guarantee-content {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .guarantee-section .guarantee-title {
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .guarantee-section .guarantee-text {
+    color: rgb(236, 253, 245);
+    line-height: 1.2;
+  }
+
+  .product__payment {
+    width: 635.4px;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .product__payment .list-payment {
+    box-sizing: border-box;
+    color: rgb(45, 45, 45);
+    display: flex;
+    flex-wrap: wrap;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    height: 88px;
+    justify-content: flex-start;
+    line-height: 25.2px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: disc;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-inline-start: 0;
+    unicode-bidi: isolate;
+    width: 635.4px;
+    max-width: 100%;
+    -webkit-font-smoothing: antialiased;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .product__payment .list-payment__item {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .product__payment .list-payment__item .icon {
+    width: 38px;
+    height: 24px;
+  }
+
+
+  .stock-indicator.low-stock .stock-text,
+  .stock-indicator.low-stock .stock-count {
+    font-weight: 700;
+  }
+  @media screen and (max-width: 749px) {
+    .reviews-bar {
+      width: 100%;
+      height: auto;
+    }
+
+    .stock-indicator.low-stock {
+      cursor: pointer;
+      scrollbar-width: none;
+      width: 330.4px;
+      max-width: 100%;
+    }
+
+    .trust-row {
+      width: 100%;
+      height: auto;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      padding-top: 12px;
+      row-gap: 0;
+      column-gap: 8px;
+    }
+
+    .trust-row .trust-item {
+      flex: 1 1 0;
+      min-width: 0;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .value-section {
+      cursor: pointer;
+      scrollbar-width: none;
+      width: 330.4px;
+      max-width: 100%;
+      height: auto;
+      min-height: 190.8px;
+    }
+
+    .value-section .value-items {
+      grid-template-columns: 1fr;
+      row-gap: 4px;
+    }
+
+    .features-section {
+      width: 100%;
+      height: auto;
+    }
+
+    .guarantee-section {
+      cursor: pointer;
+      scrollbar-width: none;
+      width: 330.4px;
+      max-width: 100%;
+      height: 77.7px;
+    }
+
+    .product__payment {
+      width: 330.4px;
+      max-width: 100%;
+    }
+
+    .product__payment .list-payment {
+      width: 330.4px;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
   @media screen and (min-width: 750px) {
     .product-details > .group-block > .group-block-content {
       gap: 6px;
@@ -118,6 +838,90 @@
     }
   }
 
+  .product-details .add-to-cart-button {
+    appearance: auto;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(10, 10, 10);
+    background-image: none;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-size: auto;
+    border-top: 0 none rgb(255, 255, 255);
+    border-right: 0 none rgb(255, 255, 255);
+    border-bottom: 0 none rgb(255, 255, 255);
+    border-left: 0 none rgb(255, 255, 255);
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    height: 54px;
+    line-height: normal;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-top: 18px;
+    padding-right: 28px;
+    padding-bottom: 18px;
+    padding-left: 28px;
+    position: relative;
+    text-align: center;
+    text-indent: 0;
+    text-rendering: auto;
+    text-shadow: none;
+    text-transform: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 635.4px;
+    max-width: 100%;
+    word-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+    -webkit-border-image: none;
+  }
+
+  .product-details .add-to-cart-button .add-to-cart-text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .product-details .add-to-cart-button .add-to-cart-icon {
+    display: none;
+  }
+
+  .product-details .add-to-cart-button .add-to-cart-text::after {
+    content: '';
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    background-color: currentColor;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5'%3E%3Cpath d='M5 12h14M12 5l7 7-7 7'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5'%3E%3Cpath d='M5 12h14M12 5l7 7-7 7'/%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-details .add-to-cart-button {
+      width: 100%;
+    }
+  }
+
   /* Container styles */
   .product-details {
     display: flex;
@@ -141,6 +945,70 @@
     }
   }
 {% endstylesheet %}
+
+<script>
+  (() => {
+    const moveDetailsExtras = () => {
+      const root = document.getElementById('ProductInformation-{{ section.id }}');
+      if (!root) return;
+
+      const tagline = root.querySelector('[data-product-tagline]');
+      const bar = root.querySelector('[data-reviews-bar]');
+      const stock = root.querySelector('[data-stock-indicator]');
+      const shipping = root.querySelector('[data-shipping-note]');
+      const trust = root.querySelector('[data-trust-row]');
+      const value = root.querySelector('[data-value-section]');
+      const features = root.querySelector('[data-features-section]');
+      const guarantee = root.querySelector('[data-guarantee-section]');
+      const payment = root.querySelector('[data-product-payment]');
+      const title = root.querySelector('.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > h1');
+      if (!title) return;
+
+      const titleBlock = title.closest('.text-block');
+      if (!titleBlock) return;
+
+      if (tagline && titleBlock.nextElementSibling !== tagline) {
+        titleBlock.insertAdjacentElement('afterend', tagline);
+      }
+
+      if (bar && (!tagline || tagline.nextElementSibling !== bar)) {
+        (tagline || titleBlock).insertAdjacentElement('afterend', bar);
+      }
+
+      if (stock && (!bar || bar.nextElementSibling !== stock)) {
+        (bar || tagline || titleBlock).insertAdjacentElement('afterend', stock);
+      }
+
+      const addToCart = root.querySelector('.product-form-buttons add-to-cart-component');
+      if (shipping && addToCart && addToCart.parentElement && addToCart.parentElement.nextElementSibling !== shipping) {
+        addToCart.parentElement.insertAdjacentElement('afterend', shipping);
+      }
+
+      if (trust && shipping && shipping.nextElementSibling !== trust) {
+        shipping.insertAdjacentElement('afterend', trust);
+      }
+
+      if (value && trust && trust.nextElementSibling !== value) {
+        trust.insertAdjacentElement('afterend', value);
+      }
+
+      if (features && value && value.nextElementSibling !== features) {
+        value.insertAdjacentElement('afterend', features);
+      }
+
+      if (guarantee && features && features.nextElementSibling !== guarantee) {
+        features.insertAdjacentElement('afterend', guarantee);
+      }
+
+      if (payment && guarantee && guarantee.nextElementSibling !== payment) {
+        guarantee.insertAdjacentElement('afterend', payment);
+      }
+    };
+
+    moveDetailsExtras();
+    document.addEventListener('shopify:section:load', moveDetailsExtras);
+  })();
+</script>
 
 {% schema %}
 {
@@ -331,6 +1199,12 @@
       "id": "product_category",
       "label": "Product category text",
       "default": "Pro-Grade Beaded Rope"
+    },
+    {
+      "type": "text",
+      "id": "stock_indicator_text",
+      "label": "Stock indicator text",
+      "default": "Only 16 left in stock"
     },
     {
       "type": "checkbox",
