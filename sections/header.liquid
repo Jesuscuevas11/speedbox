@@ -573,6 +573,32 @@
     opacity: 0;
   }
 
+  @media screen and (max-width: 749px) {
+    #header-group > * {
+      transition: transform var(--animation-speed) var(--animation-easing);
+      will-change: transform;
+      backface-visibility: hidden;
+    }
+
+    #header-group:has(#header-component[sticky='always'][data-scroll-direction='down']) > * {
+      transform: translate3d(0, calc(-1 * var(--header-group-height)), 0);
+      pointer-events: none;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    #header-group > * {
+      transition: transform var(--animation-speed) var(--animation-easing);
+      will-change: transform;
+      backface-visibility: hidden;
+    }
+
+    #header-group:has(#header-component[sticky='always'][data-scroll-direction='down']) > * {
+      transform: translate3d(0, calc(-1 * var(--header-group-height)), 0);
+      pointer-events: none;
+    }
+  }
+
   /* ================================
      * Underlays
      * ================================ */
