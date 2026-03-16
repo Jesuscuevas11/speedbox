@@ -9,6 +9,21 @@
           {% endif %}
           {{ block.shopify_attributes }}
         >
+          {% liquid
+            assign timeline_fallback_image = ''
+            assign timeline_fallback_alt = 'Timeline image'
+            case forloop.index
+              when 1
+                assign timeline_fallback_image = 'https://www.elevaterope.com/cdn/shop/files/elevate_app_with_play_store_and_app_store_icons.png?v=1742612172&width=660'
+                assign timeline_fallback_alt = 'Aplicacion Elevate Shred'
+              when 2
+                assign timeline_fallback_image = 'https://www.elevaterope.com/cdn/shop/files/Worldfissa-130-scaled.jpg?v=1742613027&width=660'
+                assign timeline_fallback_alt = 'Aprobado por expertos'
+              else
+                assign timeline_fallback_image = 'https://www.elevaterope.com/cdn/shop/files/MArco-Testi.jpg?v=1742613027&width=660'
+                assign timeline_fallback_alt = 'Razon para elegir elevate'
+            endcase
+          %}
           <div class="pdp-timeline__row">
             <div class="pdp-timeline__media">
               {% if block.settings.image != blank %}
@@ -23,6 +38,8 @@
                 }}
               {% elsif block.settings.image_url != blank %}
                 <img src="{{ block.settings.image_url }}" alt="{{ block.settings.image_alt | escape }}" loading="lazy" width="660" height="660">
+              {% elsif timeline_fallback_image != blank %}
+                <img src="{{ timeline_fallback_image }}" alt="{{ block.settings.image_alt | default: timeline_fallback_alt | escape }}" loading="lazy" width="660" height="660">
               {% endif %}
             </div>
             <div class="pdp-timeline__content">
@@ -71,15 +88,15 @@
           ]
         },
         {"type": "image_picker", "id": "image", "label": "Image"},
-        {"type": "text", "id": "image_url", "label": "Image URL fallback", "default": ""},
+        {"type": "text", "id": "image_url", "label": "Image URL fallback"},
         {"type": "text", "id": "image_alt", "label": "Image alt", "default": "Timeline image"},
         {"type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Incluye:"},
         {"type": "text", "id": "heading", "label": "Heading", "default": "ELEVATE SHRED"},
         {
-          "type": "richtext",
+          "type": "textarea",
           "id": "description",
           "label": "Description",
-          "default": "<h3>Aplicacion de Entrenamiento con Cuerda para Saltar</h3><p>Nuestra aplicacion complementaria de cuerda para saltar disenada para llevar tus entrenamientos al siguiente nivel.</p>"
+          "default": "Aplicacion de Entrenamiento con Cuerda para Saltar\n\nNuestra aplicacion complementaria de cuerda para saltar disenada para llevar tus entrenamientos al siguiente nivel."
         }
       ]
     }
@@ -92,6 +109,8 @@
           "type": "timeline_item",
           "settings": {
             "alignment": "right",
+            "image_url": "https://www.elevaterope.com/cdn/shop/files/elevate_app_with_play_store_and_app_store_icons.png?v=1742612172&width=660",
+            "image_alt": "Aplicacion Elevate Shred",
             "eyebrow": "Incluye:",
             "heading": "ELEVATE SHRED",
             "description": "<h3>Aplicacion de Entrenamiento con Cuerda para Saltar</h3><p>Nuestra aplicacion complementaria de cuerda para saltar disenada para llevar tus entrenamientos al siguiente nivel.</p><p><strong>Programacion para todos los niveles:</strong> Ya seas principiante o un saltador avanzado, nuestra aplicacion ofrece programas adaptados a tu nivel.</p>"
@@ -101,6 +120,8 @@
           "type": "timeline_item",
           "settings": {
             "alignment": "left",
+            "image_url": "https://www.elevaterope.com/cdn/shop/files/Worldfissa-130-scaled.jpg?v=1742613027&width=660",
+            "image_alt": "Aprobado por expertos",
             "eyebrow": "Aprobado por:",
             "heading": "",
             "description": "<h5>Expertos en Crossfit, boxeadores, campeones mundiales de salto con cuerda y miles de influencers de fitness en todo el mundo.</h5>"
@@ -110,6 +131,8 @@
           "type": "timeline_item",
           "settings": {
             "alignment": "right",
+            "image_url": "https://www.elevaterope.com/cdn/shop/files/MArco-Testi.jpg?v=1742613027&width=660",
+            "image_alt": "Razon para elegir elevate",
             "eyebrow": "",
             "heading": "",
             "description": "<h6><strong>Y esta es la razon:</strong></h6><p><strong>Experiencia definitiva de salto con cuerda:</strong> disenado para principiantes y saltadores competitivos.</p><p><strong>Sin enredos y versatil:</strong> promete cero enredos y menos tropiezos.</p>"
