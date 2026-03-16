@@ -225,11 +225,10 @@
               "block_order": []
             },
             "text_aEtTtq": {
-              "type": "text",
+              "type": "product-description",
               "name": "Product description",
-              "disabled": true,
               "settings": {
-                "text": "<p>{{ closest.product.description }}</p>",
+                "text": "<p>Cuerda de salto con cuentas ajustable y duradera para mejorar tu cardio, coordinacion y resistencia.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",

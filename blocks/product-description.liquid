@@ -1,14 +1,32 @@
 
 
 {% liquid
-  assign product = block.settings.product
-  if request.visual_preview_mode and product == blank
+  assign product = block.settings.product | default: closest.product | default: product
+  assign text = block.settings.text
+
+  if text == blank and product != blank
+    assign text = product.description
+  endif
+
+  if request.visual_preview_mode and text == blank
     assign product = collections.all.products.first
     assign text = product.description
   endif
+
+  assign one_line_text = text | strip_html | strip_newlines | replace: '&nbsp;', ' ' | replace: '  ', ' ' | strip
+
+  if one_line_text == blank
+    assign one_line_text = 'Descripción del producto'
+  endif
+
+  capture text
+    echo '<p>'
+    echo one_line_text | escape
+    echo '</p>'
+  endcapture
 %}
 
-{% render 'text', fallback_text: text, block: block %}
+{% render 'text', class: 'product-description-dynamic', fallback_text: text, block: block %}
 
 {% schema %}
 {
