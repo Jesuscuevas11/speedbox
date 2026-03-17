@@ -323,7 +323,7 @@
     }
   }
 
-  @media screen and (min-width: 750px) {
+  @media screen and (min-width: 1370px) {
     .product-information .product-details > .group-block {
       transform: translateX(-100px);
     }
@@ -412,10 +412,11 @@
 
     .product-information .media-gallery--carousel slideshow-container {
       margin-top: 12px;
-      width: var(--carousel-mobile-width-current);
+      width: calc(var(--carousel-mobile-width-current) + 9px);
       max-width: 100%;
       margin-inline: auto;
       overflow: hidden;
+      transform: translateX(-15px);
     }
 
     .product-information .media-gallery--carousel slideshow-slides {
@@ -445,10 +446,12 @@
     }
 
     .product-details .text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > h1 {
+      font-size: 32px;
       white-space: normal;
       text-wrap: wrap;
       overflow: visible;
       text-overflow: clip;
+      margin-bottom: 4px;
     }
   }
 
