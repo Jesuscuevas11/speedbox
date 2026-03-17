@@ -35,7 +35,7 @@
         <svg class="star" viewBox="0 0 20 20"><path fill="currentColor" d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
         <svg class="star" viewBox="0 0 20 20"><path fill="currentColor" d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
       </div>
-      <span class="review-count"><strong>4.9</strong> from 1,200+ reviews</span>
+      <span class="review-count"><strong>{{ block_settings.reviews_rating | default: '4.9' | escape }}</strong> {{ block_settings.reviews_text | default: 'de 1.200+ resenas' | escape }}</span>
     </div>
     <div class="stock-indicator low-stock" data-stock-indicator>
       <span class="stock-text low-stock">{{ block_settings.stock_indicator_text | escape }}</span>
@@ -44,71 +44,71 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path d="M5 13l4 4L19 7"></path>
       </svg>
-      <span>Envio disponible a todo el mundo</span>
+      <span>{{ block_settings.shipping_note_text | default: 'Envio disponible a todo el mundo' | escape }}</span>
     </div>
     <div class="trust-row" data-trust-row>
       <div class="trust-item">
         <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2"></rect><path d="M16 8h4l3 3v5h-7V8z"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-        <span class="trust-text">Envio rapido</span>
+        <span class="trust-text">{{ block_settings.trust_item_1_text | default: 'Envio rapido' | escape }}</span>
       </div>
       <div class="trust-item">
         <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-        <span class="trust-text">Soporte 24/7</span>
+        <span class="trust-text">{{ block_settings.trust_item_2_text | default: 'Soporte 24/7' | escape }}</span>
       </div>
       <div class="trust-item">
         <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"></path><path d="M3 12h3m15 0h-3"></path></svg>
-        <span class="trust-text">Devoluciones en 90 dias</span>
+        <span class="trust-text">{{ block_settings.trust_item_3_text | default: 'Devoluciones en 90 dias' | escape }}</span>
       </div>
     </div>
     <div class="value-section" data-value-section>
       <div class="value-header">
-        <div class="value-title">Sistema completo de entrenamiento</div>
+        <div class="value-title">{{ block_settings.value_section_title | default: 'Sistema completo de entrenamiento' | escape }}</div>
         <div class="value-total">
-          <span class="strike" data-total-value-header>€213,95</span>
-          <span class="current" data-package-price>€29,95</span>
+          <span class="strike" data-total-value-header>{{ block_settings.value_total_compare_price | default: '€213,95' | escape }}</span>
+          <span class="current" data-package-price>{{ block_settings.value_total_current_price | default: '€29,95' | escape }}</span>
         </div>
       </div>
       <div class="value-items">
         <div class="value-item">
-          <div class="value-item-icon">📱</div>
+          <div class="value-item-icon">{{ block_settings.value_item_1_icon | default: '📱' }}</div>
           <div class="value-item-content">
-            <div class="value-item-name">App de Elevate</div>
-            <div class="value-item-desc">Mas de 100 tutoriales (€99,00)</div>
+            <div class="value-item-name">{{ block_settings.value_item_1_name | default: 'App Elevate' | escape }}</div>
+            <div class="value-item-desc">{{ block_settings.value_item_1_desc | default: 'Mas de 100 tutoriales (€99,00)' | escape }}</div>
           </div>
         </div>
         <div class="value-item">
-          <div class="value-item-icon">🧠</div>
+          <div class="value-item-icon">{{ block_settings.value_item_2_icon | default: '🧠' }}</div>
           <div class="value-item-content">
-            <div class="value-item-name">Codigo Elevate</div>
-            <div class="value-item-desc">Guia de mentalidad (€27,00)</div>
+            <div class="value-item-name">{{ block_settings.value_item_2_name | default: 'Codigo Elevate' | escape }}</div>
+            <div class="value-item-desc">{{ block_settings.value_item_2_desc | default: 'Guia de mentalidad (€27,00)' | escape }}</div>
           </div>
         </div>
         <div class="value-item">
-          <div class="value-item-icon">📖</div>
+          <div class="value-item-icon">{{ block_settings.value_item_3_icon | default: '📖' }}</div>
           <div class="value-item-content">
-            <div class="value-item-name">Guia de nutricion</div>
-            <div class="value-item-desc">Mas de 30 comidas (€39,00)</div>
+            <div class="value-item-name">{{ block_settings.value_item_3_name | default: 'Guia de nutricion' | escape }}</div>
+            <div class="value-item-desc">{{ block_settings.value_item_3_desc | default: 'Mas de 30 comidas (€39,00)' | escape }}</div>
           </div>
         </div>
         <div class="value-item">
-          <div class="value-item-icon">✅</div>
+          <div class="value-item-icon">{{ block_settings.value_item_4_icon | default: '✅' }}</div>
           <div class="value-item-content">
-            <div class="value-item-name">Seguimiento</div>
-            <div class="value-item-desc">Acceso por 1 ano (€19,00)</div>
+            <div class="value-item-name">{{ block_settings.value_item_4_name | default: 'Seguimiento' | escape }}</div>
+            <div class="value-item-desc">{{ block_settings.value_item_4_desc | default: 'Acceso por 1 ano (€19,00)' | escape }}</div>
           </div>
         </div>
       </div>
     </div>
     <div class="features-section" data-features-section>
-      <h2 class="features-title">Por que esta cuerda lo cambia todo</h2>
+      <h2 class="features-title">{{ block_settings.features_title | default: 'Por que esta cuerda lo cambia todo' | escape }}</h2>
 
       <div class="feature-item">
         <div class="feature-check">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"></path></svg>
         </div>
         <div class="feature-content">
-          <div class="feature-benefit">Control de ritmo perfecto</div>
-          <div class="feature-detail">Las cuentas segmentadas crean un peso optimo y retroalimentacion tactil</div>
+          <div class="feature-benefit">{{ block_settings.feature_1_title | default: 'Control de ritmo perfecto' | escape }}</div>
+          <div class="feature-detail">{{ block_settings.feature_1_desc | default: 'Las cuentas segmentadas crean un peso optimo y retroalimentacion tactil' | escape }}</div>
         </div>
       </div>
 
@@ -117,8 +117,8 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"></path></svg>
         </div>
         <div class="feature-content">
-          <div class="feature-benefit">Sistema completo de entrenamiento</div>
-          <div class="feature-detail">Mas de 100 tutoriales, planes de comida y seguimiento de progreso</div>
+          <div class="feature-benefit">{{ block_settings.feature_2_title | default: 'Sistema completo de entrenamiento' | escape }}</div>
+          <div class="feature-detail">{{ block_settings.feature_2_desc | default: 'Mas de 100 tutoriales, planes de comida y seguimiento de progreso' | escape }}</div>
         </div>
       </div>
 
@@ -127,8 +127,8 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"></path></svg>
         </div>
         <div class="feature-content">
-          <div class="feature-benefit">Disenada para entrenamiento intenso</div>
-          <div class="feature-detail">Cuentas duraderas con mangos resistentes a impactos</div>
+          <div class="feature-benefit">{{ block_settings.feature_3_title | default: 'Disenada para entrenamiento intenso' | escape }}</div>
+          <div class="feature-detail">{{ block_settings.feature_3_desc | default: 'Cuentas duraderas con mangos resistentes a impactos' | escape }}</div>
         </div>
       </div>
     </div>
@@ -137,8 +137,8 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
       </div>
       <div class="guarantee-content">
-        <div class="guarantee-title">Mango de por vida + Proteccion de 90 dias</div>
-        <div class="guarantee-text">Se rompe el mango? Reemplazo gratis. No estas satisfecho? Reembolso completo.</div>
+        <div class="guarantee-title">{{ block_settings.guarantee_title | default: 'Mango de por vida + Proteccion de 90 dias' | escape }}</div>
+        <div class="guarantee-text">{{ block_settings.guarantee_text | default: 'Se rompe el mango? Reemplazo gratis. No estas satisfecho? Reembolso completo.' | escape }}</div>
       </div>
     </div>
     <div class="product__payment" data-product-payment>
@@ -606,6 +606,7 @@
 
   .value-section .value-title {
     font-weight: 700;
+    color: #5510dd;
   }
 
   .value-section .value-total {
@@ -621,7 +622,7 @@
 
   .value-section .value-total .current {
     font-weight: 700;
-    color: rgb(23, 23, 23);
+    color: #5510dd;
   }
 
   .value-section .value-items {
@@ -641,18 +642,28 @@
   }
 
   .value-section .value-item-icon {
-    font-size: 14px;
+    font-size: 16.1px;
     line-height: 21px;
   }
 
   .value-section .value-item-name {
     font-weight: 700;
     line-height: 1.2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    overflow: hidden;
   }
 
   .value-section .value-item-desc {
     color: rgb(115, 115, 115);
     line-height: 1.2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
   }
 
   .features-section {
@@ -993,18 +1004,21 @@
     .trust-row {
       width: 100%;
       height: auto;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       justify-content: space-between;
       padding-top: 12px;
-      row-gap: 0;
+      row-gap: 8px;
       column-gap: 8px;
     }
 
     .trust-row .trust-item {
-      flex: 1 1 0;
+      flex: 1 1 calc(33.333% - 8px);
       min-width: 0;
       justify-content: center;
       font-size: 12px;
+      white-space: normal;
+      text-align: center;
+      line-height: 1.2;
     }
 
     .value-section {
@@ -1017,7 +1031,7 @@
     }
 
     .value-section .value-items {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       row-gap: 4px;
     }
 
@@ -1485,6 +1499,190 @@
       "id": "stock_indicator_text",
       "label": "Stock indicator text",
       "default": "Only 16 left in stock"
+    },
+    {
+      "type": "header",
+      "content": "Custom content"
+    },
+    {
+      "type": "text",
+      "id": "reviews_rating",
+      "label": "Reviews rating",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "reviews_text",
+      "label": "Reviews text",
+      "default": "de 1.200+ resenas"
+    },
+    {
+      "type": "text",
+      "id": "shipping_note_text",
+      "label": "Shipping note",
+      "default": "Envio disponible a todo el mundo"
+    },
+    {
+      "type": "text",
+      "id": "trust_item_1_text",
+      "label": "Trust item 1",
+      "default": "Envio rapido"
+    },
+    {
+      "type": "text",
+      "id": "trust_item_2_text",
+      "label": "Trust item 2",
+      "default": "Soporte 24/7"
+    },
+    {
+      "type": "text",
+      "id": "trust_item_3_text",
+      "label": "Trust item 3",
+      "default": "Devoluciones en 90 dias"
+    },
+    {
+      "type": "text",
+      "id": "value_section_title",
+      "label": "Value section title",
+      "default": "Sistema completo de entrenamiento"
+    },
+    {
+      "type": "text",
+      "id": "value_total_compare_price",
+      "label": "Value compare price",
+      "default": "€213,95"
+    },
+    {
+      "type": "text",
+      "id": "value_total_current_price",
+      "label": "Value current price",
+      "default": "€29,95"
+    },
+    {
+      "type": "text",
+      "id": "value_item_1_icon",
+      "label": "Value item 1 icon",
+      "default": "📱"
+    },
+    {
+      "type": "text",
+      "id": "value_item_1_name",
+      "label": "Value item 1 title",
+      "default": "App de Elevate"
+    },
+    {
+      "type": "text",
+      "id": "value_item_1_desc",
+      "label": "Value item 1 description",
+      "default": "Mas de 100 tutoriales (€99,00)"
+    },
+    {
+      "type": "text",
+      "id": "value_item_2_icon",
+      "label": "Value item 2 icon",
+      "default": "🧠"
+    },
+    {
+      "type": "text",
+      "id": "value_item_2_name",
+      "label": "Value item 2 title",
+      "default": "Codigo Elevate"
+    },
+    {
+      "type": "text",
+      "id": "value_item_2_desc",
+      "label": "Value item 2 description",
+      "default": "Guia de mentalidad (€27,00)"
+    },
+    {
+      "type": "text",
+      "id": "value_item_3_icon",
+      "label": "Value item 3 icon",
+      "default": "📖"
+    },
+    {
+      "type": "text",
+      "id": "value_item_3_name",
+      "label": "Value item 3 title",
+      "default": "Guia de nutricion"
+    },
+    {
+      "type": "text",
+      "id": "value_item_3_desc",
+      "label": "Value item 3 description",
+      "default": "Mas de 30 comidas (€39,00)"
+    },
+    {
+      "type": "text",
+      "id": "value_item_4_icon",
+      "label": "Value item 4 icon",
+      "default": "✅"
+    },
+    {
+      "type": "text",
+      "id": "value_item_4_name",
+      "label": "Value item 4 title",
+      "default": "Seguimiento"
+    },
+    {
+      "type": "text",
+      "id": "value_item_4_desc",
+      "label": "Value item 4 description",
+      "default": "Acceso por 1 ano (€19,00)"
+    },
+    {
+      "type": "text",
+      "id": "features_title",
+      "label": "Features title",
+      "default": "Por que esta cuerda lo cambia todo"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_title",
+      "label": "Feature 1 title",
+      "default": "Control de ritmo perfecto"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_desc",
+      "label": "Feature 1 description",
+      "default": "Las cuentas segmentadas crean un peso optimo y retroalimentacion tactil"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_title",
+      "label": "Feature 2 title",
+      "default": "Sistema completo de entrenamiento"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_desc",
+      "label": "Feature 2 description",
+      "default": "Mas de 100 tutoriales, planes de comida y seguimiento de progreso"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_title",
+      "label": "Feature 3 title",
+      "default": "Disenada para entrenamiento intenso"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_desc",
+      "label": "Feature 3 description",
+      "default": "Cuentas duraderas con mangos resistentes a impactos"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_title",
+      "label": "Guarantee title",
+      "default": "Mango de por vida + Proteccion de 90 dias"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee text",
+      "default": "Se rompe el mango? Reemplazo gratis. No estas satisfecho? Reembolso completo."
     },
     {
       "type": "checkbox",
