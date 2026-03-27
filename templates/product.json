@@ -397,6 +397,7 @@
       "type": "pdp-featured-legacy",
       "settings": {
         "product_url": "",
+        "product_image": "shopify://shop_images/1.webp",
         "product_image_url": "https://www.elevaterope.com/cdn/shop/files/HEROExample_00de0200-0308-4d7f-84fb-9f7ab9c95a08.jpg?v=1770505158&width=1200",
         "product_image_alt": "Storm - Cuerda para saltar con cuentas",
         "product_title": "Storm - Cuerda para saltar con cuentas",
@@ -413,8 +414,10 @@
         "kicker": "INCLUYE :",
         "headline": "1X CUERDA CON PERLAS",
         "description": "Las cuerdas con cuentas son perfectas para quienes buscan practicar trucos, envolturas de estilo libre, liberaciones y explorar el mundo del salto de cuerda estilo libre.",
+        "image_1": "shopify://shop_images/ChatGPT_Image_27_mar_2026_11_45_45.png",
         "image_1_url": "https://www.elevaterope.com/cdn/shop/files/Copy-of-Beaded-Jump-Rope-Lynx.png?v=1745700849&width=1500",
         "image_1_alt": "Lynx - Beaded Jump Rope - Elevate Rope",
+        "image_2": "shopify://shop_images/ChatGPT_Image_27_mar_2026_11_49_57.png",
         "image_2_url": "https://www.elevaterope.com/cdn/shop/files/speed_rope_comparison_image.webp?v=1742608446&width=1500",
         "image_2_alt": "Comparacion de cuerdas"
       }
