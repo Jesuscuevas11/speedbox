@@ -29,7 +29,9 @@
   {% if template.name == 'index' and block_settings.hide_logo_on_home_page %}
     data-hidden-on-home-page
   {% endif %}
-  href="{{ routes.root_url }}"
+  {% if block_settings.logo_url != blank %}
+    href="{{ block_settings.logo_url }}"
+  {% endif %}
   class="size-style spacing-style header-logo"
   style="
     {% render 'size-style', settings: block_settings %}
@@ -148,6 +150,11 @@
     {
       "type": "paragraph",
       "content": "t:content.edit_logo_in_theme_settings"
+    },
+    {
+      "type": "url",
+      "id": "logo_url",
+      "label": "t:settings.logo_url"
     },
     {
       "type": "header",
